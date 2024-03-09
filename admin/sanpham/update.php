@@ -9,66 +9,59 @@
       $hinh = "no photo";
       }
 ?>
-<div class="row2">
-         <div class="row2 font_title">
-          <h1>CẬP NHẬT LOẠI HÀNG HÓA</h1>
-         </div>
-         <div class="row2 form_content ">
-         <form action="index.php?act=updatesp" method="POST" enctype="multipart/form-data">
-           <div class="row2 mb10 form_content_container">
-          <!-- 
-            <label> Mã san pham </label> <br>
-            <input type="text" name="masp">
-           </div>
-          -->
-          <select name="iddm" >
-                <option value="0" selected>Tất cả</option>
+
+<div class="container">
+  <h1>CẬP NHẬT LOẠI HÀNG HÓA</h1>
+  <form class="row g-3" action="index.php?act=updatesp" method="POST">
+    <!-- 
+        <label> Mã san pham </label> <br>
+        <input type="text" name="masp">
+      </div>
+    -->
+  <div class="col-md-6">
+    <div class="col-3">
+      <label>Danh mục</label>
+        <select class="form-select" name="iddm" aria-label="Default select example">
+          <option value="0" selected>Tất cả</option>
             <?php
               foreach($listdanhmuc as $danhmuc){
                 extract($danhmuc);
                 if($iddm==$id) $s="selected"; else $s="";
-                    echo '<option value="'.$id.'" '.$s.'>'.$name.'</option>';
+                echo '<option value="'.$id.'" '.$s.'>'.$name.'</option>';
                 //else echo '<option value="'.$id.'">'.$name.'</option>';
               }
-              if(is_array($sanpham)){
+                if(is_array($sanpham)){
                 extract($sanpham);
-            }
+              }
             ?>
-            
-           </select>
+        </select>
+    </div>
 
-           <div class="row2 mb10">
-            <label>Tên sản phẩm </label> <br>
-            <input type="text" name="tensp" value="<?=$name?>">
-           </div>
+    <label>Tên sản phẩm </label>
+    <input class="form-control" type="text" name="tensp" value="<?=$name?>">
 
-           <div class="row2 mb10">
-            <label>Giá</label> <br>
-            <input type="text" name="giasp" value="<?=$price?>">
-           </div>
+    <label>Giá</label>
+    <input class="form-control" type="text" name="giasp" value="<?=$price?>">
+    
+    <label>Hình </label>
+    <input class="form-control" type="file" name="hinh" value="<?=$name?>"><?=$hinh?><br>
 
-           <div class="row2 mb10">
-            <label>Hình </label> <br>
-            <input type="file" name="hinh" value="<?=$name?>">
-            <?=$hinh?>
-          </div>
+    <label>Mô tả</label>
+    <textarea class="form-control" name="mota" cols="30" rows="10" ><?=$mota?></textarea><br>
 
-           <div class="row2 mb10">
-            <label>Mô tả</label> <br>
-            <textarea name="mota" cols="30" rows="10" ><?=$mota?></textarea>
-           </div>
+    <div class="g-3">
+      <input type="hidden" name="id" value="<?=$id?>">
+      <input class="btn btn-primary" name="capnhat" type="submit" value="Cập nhật">
+      <input class="btn btn-success" type="reset" value="NHẬP LẠI">
+      <a href="index.php?act=listsp"><input class="btn btn-warning" type="button" value="DANH SÁCH"></a>
+    </div>
 
-           <div class="row mb10 ">
-            <input type="hidden" name="id" value="<?=$id?>">
-         <input class="mr20" name="capnhat" type="submit" value="Cập nhật">
-         <input  class="mr20" type="reset" value="NHẬP LẠI">
+  </div>
 
-         <a href="index.php?act=listsp"><input  class="mr20" type="button" value="DANH SÁCH"></a>
-           </div>
-           <?php
-           if(isset($thongbao)&&($thongbao!=""))
-                echo $thongbao;
-           ?>
-          </form>
-         </div>
-        </div>
+      <?php
+        if(isset($thongbao)&&($thongbao!=""))
+        echo $thongbao;
+      ?>
+
+  </form>
+</div>

@@ -1,27 +1,22 @@
-<div class="row2">
-         <div class="row2 font_title">
-          <h1>THÊM MỚI DANH MỤC</h1>
-         </div>
-         <div class="row2 form_content ">
-          <form action="index.php?act=adddm" method="POST">
-           <div class="row2 mb10 form_content_container">
-           <label> Mã loại </label> <br>
-            <input type="text" name="maloai" placeholder="nhập vào mã loại">
-           </div>
-           <div class="row2 mb10">
-            <label>Tên loại </label> <br>
-            <input type="text" name="tenloai" placeholder="nhập vào tên">
-           </div>
-           <div class="row mb10 ">
-         <input class="mr20" name="themmoi" type="submit" value="THÊM MỚI">
-         <input  class="mr20" type="reset" value="NHẬP LẠI">
+<div class="container">
+<h1>THÊM MỚI DANH MỤC</h1>
+<form class="row g-3" action="index.php?act=adddm" method="POST">
+    <div class="col-auto">
+      <label> Mã loại </label>
+        <input class="form-control" name="maloai" type="text" placeholder="Nhập vào mã loại" aria-label="default input example"><br>
+      <label>Tên loại </label>
+        <input class="form-control" name="tenloai" type="text" placeholder="Nhập vào tên loại" aria-label="default input example"><br>
+      <div class="g-3">
+        <input class="btn btn-primary" name="themmoi" type="submit" value="THÊM MỚI">
 
-         <a href="index.php?act=listdm"><input  class="mr20" type="button" value="DANH SÁCH"></a>
-           </div>
-           <?php
-           if(isset($thongbao)&&($thongbao!=""))
-                echo $thongbao;
-           ?>
-          </form>
-         </div>
-        </div>
+        <input  class="btn btn-success" type="reset" value="NHẬP LẠI">
+
+        <a href="index.php?act=listdm"><input  class="btn btn-warning" type="button" value="DANH SÁCH"></a>
+      </div>
+        <?php
+          if(isset($thongbao)&&($thongbao!=""))
+            echo $thongbao;
+        ?>
+    </div>
+  </form>
+</div>

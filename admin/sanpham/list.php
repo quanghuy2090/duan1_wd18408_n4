@@ -1,24 +1,18 @@
-<div class="row2">
-    <div class="row2 font_title">
-        <h1>DANH SÁCH LOẠI HÀNG HÓA</h1>
-         </div>
-         <form action="index.php?act=listsp" method="POST">
-         <div class="row mb10 ">        
-                <a href="index.php?act=addsp"> <input  class="mr20" type="button" value="NHẬP THÊM"></a>
-           </div>
-           <div class="row2 mb10 formds_loai">    
-            </form>
-                <div class="row2 form_content ">
-                    <table border="1">
+<div class="container">
+    <h1>DANH SÁCH LOẠI HÀNG HÓA</h1>
+        <form action="index.php?act=listsp" method="POST">
+            <div class="text-center">
+                <table class="table table-hover table-striped">
+                    <thead class="table-dark">
                         <tr>
-                            
                             <th>MÃ LOẠI</th>
                             <th>TÊN SẢN PHẨM</th>
                             <th>HÌNH</th>
                             <th>GIÁ</th>
-                            <th>LLƯỢT XEM</th>
-                            <th></th>
+                            <th>LƯỢT XEM</th>
+                            <th>THAO TÁC</th>
                         </tr>
+                    </thead>
                         <?php
                             foreach($listsanpham as $sanpham){
                                 extract($sanpham);
@@ -30,24 +24,19 @@
                                 }else{
                                     $hinh = "no photo";
                                 }
-
                                 echo '<tr>                       
                                     <td>'.$id.'</td>
                                     <td>'.$name.'</td>
                                     <td>'.$hinh.'</td>
                                     <td>'.$price.'</td>
                                     <td>'.$luotxem.'</td>
-                                    <td><a href="'.$suasp.'"><input type="button" value="Sửa"></a>   
-                                        <a href="'.$xoasp.'"><input type="button" value="Xóa"></a></td>
-                                    </tr>';
+                                    <td><a href="'.$suasp.'"><input class="btn btn-success" type="button" value="Sửa"></a>   
+                                        <a href="'.$xoasp.'"><input class="btn btn-danger" type="button" value="Xóa"></a></td>
+                                </tr>';
                             }
-                        ?>
-                                
-                    </table>
+                        ?>    
+                </table>
             </div>
-            <div class="row mb10 ">        
-            <!-- <a href="index.php?act=addsp"> <input  class="mr20" type="button" value="NHẬP THÊM"></a> -->
-            </div>
-        </form>
-    </div>
+        <a href="index.php?act=addsp"><input  class="btn btn-primary" type="button" value="NHẬP THÊM"></a>     
+    </form>
 </div>

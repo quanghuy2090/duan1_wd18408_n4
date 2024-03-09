@@ -3,31 +3,25 @@
         extract($dm);
     }
 ?>
-<div class="row2">
-         <div class="row2 font_title">
-          <h1>CẬP NHẬT DANH MỤC</h1>
-         </div>
-         <div class="row2 form_content ">
-          <form action="index.php?act=updatedm" method="POST">
-           <div class="row2 mb10 form_content_container">
-           <label> Mã loại </label> <br>
-            <input type="text" name="maloai" disabled>
-           </div>
-           <div class="row2 mb10">
-            <label>Tên loại </label> <br>
-            <input type="text" name="tenloai" value="<?php if(isset($name)&&($name!="")) echo $name;?>" >
-           </div>
-           <div class="row mb10 ">
-            <input type="hidden" name="id" value="<?php if(isset($id)&&($id>0)) echo $id;?>">
-            <input class="mr20" name="capnhat" type="submit" value="CẬP NHẬT">
-            <input  class="mr20" type="reset" value="NHẬP LẠI">
+<div class="container">
+    <h1>CẬP NHẬT DANH MỤC</h1>
+        <form action="index.php?act=updatedm" method="POST" class="row g-3">
+            <div class="col-auto">
+                <label> Mã loại </label> <br>
+                <input class="form-control" name="maloai" type="text" placeholder="Nhập vào mã loại" aria-label="default input example"><br>
 
-         <a href="index.php?act=listdm"><input  class="mr20" type="button" value="DANH SÁCH"></a>
-           </div>
-           <?php
+                <label>Tên loại </label> <br>
+                <input class="form-control" placeholder="Nhập vào tên loại" aria-label="default input example" type="text" name="tenloai" value="<?php if(isset($name)&&($name!="")) echo $name;?>" >
+            </div>
+            <div class="g-3">
+                <input type="hidden" name="id" value="<?php if(isset($id)&&($id>0)) echo $id;?>">
+                <input class="btn btn-primary" name="capnhat" type="submit" value="CẬP NHẬT">
+                <input  class="btn btn-success" type="reset" value="NHẬP LẠI">
+                <a href="index.php?act=listdm"><input  class="btn btn-warning" type="button" value="DANH SÁCH"></a>
+            </div>
+        <?php
            if(isset($thongbao)&&($thongbao!="")) echo $thongbao;
                 
-           ?>
-          </form>
-         </div>
-        </div>
+        ?>
+    </form>
+</div>    

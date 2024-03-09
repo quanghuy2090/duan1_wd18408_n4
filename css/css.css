@@ -373,7 +373,7 @@ width:60%;
 
 /* CSS CHO ADMIN */
 .header_admin{
-    background-color:#EEE;
+    background-color: red;
     border:1px #CCC solid;
     color:#666;
     border-radius:5px;
@@ -381,7 +381,7 @@ width:60%;
     
 }
 .header_admin h1{
-font-size:2vv;
+  font-size:2vv;
 }
 .font_title{
     background-color:#EEE;
