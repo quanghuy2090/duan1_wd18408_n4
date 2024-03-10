@@ -1,10 +1,23 @@
+<style>
+.ct-input{
+    width: 50%;
+    position: relative;
+    left:50vh;
+}
+.ct-radio{
+
+    position: relative;
+    left:80vh;
+}
+
+</style>
 <main class="catalog mb ">
     <div class="boxleft"> 
     <form action="index.php?act=billconfirm" method="post">
                 <div class=" mb">
-                        <div class="box_title">THÔNG TIN KHÁCH HÀNG</div>
-                            <div class="box_content">
-                                <table>
+                        <div class="text-center">THÔNG TIN KHÁCH HÀNG</div>
+                            <div class="text-center">
+                                <form class="">
                                     <?php
                                         if(isset($_SESSION['user'])){
                                             $user = $_SESSION['user']['user'];
@@ -18,57 +31,54 @@
                                             $tel = "";
                                         }
                                     ?>
-                                    <tr>
-                                        <td>Tên khách hàng</td>
-                                        <td><input type="text" name="user" value="<?=$user?>"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Địa chỉ</td>
-                                        <td><input type="text" name="address" value="<?=$address?>"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Email</td>
-                                        <td><input type="text" name="email" value="<?=$email?>"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Số điện thọai</td>
-                                        <td><input type="text" name="tel" value="<?=$tel?>"></td>
-                                    </tr>
-                                </table>
+
+                                        <td><label class="form-label ">Tên khách hàng</label></td>
+                                        <td><input type="text" class="form-control ct-input border border-primary-subtle" size="25" name="user" value="<?=$user?>"></td>
+
+                                        <td><label class="form-label">Địa chỉ</label></td>
+                                        <td><input type="text" class="form-control ct-input border border-primary-subtle" name="address" value="<?=$address?>"></td>
+
+                                        <td><label class="form-label">Email</label></td>
+                                        <td><input type="text" class="form-control ct-input border border-primary-subtle" name="email" value="<?=$email?>"></td>
+
+                                        <td><label class="form-label">Số điện thoại</label></td>
+                                        <td><input type="text"class="form-control ct-input border border-primary-subtle" name="tel" value="<?=$tel?>"></td>
+
+                                    </form>
                             </div>
-                    </div>
+                    </div> <br>
                     <div class="mb">
-                        <div class="box_title">PHƯƠNG THỨC THANH TOÁN</div>
+                        <div class="text-center">PHƯƠNG THỨC THANH TOÁN</div>
                             <div class="box_content">
-                                <table>
-                                    <tr>
-                                        <td><input type="radio" value="Trả tiền khi nhận hàng" name="pttt" checked>Trả tiền khi nhận hàng</td>
-                                        <td><input type="radio" value="Thanh toán online" name="pttt">Thanh toán online</td>
-                                    </tr>
-                                </table>
+ 
+                                    <div class="ct-radio">
+                                        <td><input type="radio" class="form-check-input" value="Trả tiền khi nhận hàng" name="pttt" checked>
+                                        <label class="form-check-label" for="flexRadioDefault1"> Thanh toán khi nhận hàng </label>
+                                    </td> 
+                                        <td> <input type="radio" class="form-check-input" value="Thanh toán online" name="pttt">
+                                        <label class="form-check-label" for="flexRadioDefault1"> Thanh toán ngay </label></td>
+                                    </div>
+
                             </div>
-                    </div>
+                    </div> <br>
                     <div class="mb">
-                        <div class="box_title">THÔNG TIN GIỎ HÀNG</div>
+                        <div class="text-center">THÔNG TIN GIỎ HÀNG</div>
                             <div class="box_content">
-                                <table border="1">
+                                <table class="table">
                                     <?php
                                         viewcart(0);
                                     ?>
                                 </table>
                             </div>
                     </div>
-                    <div class="row mb center mb2">
-                        <a href="index.php"><input type="button" value="Về trang chủ"></a>
-                        <a href=""><input type="submit" value="Đồng ý đặt hàng" name="dongydathang"></a>
+                    <div class="container text-center">
+                        <a href="index.php"><input type="button" class="btn btn-secondary" value="Về trang chủ"></a>
+                        <a href=""><input type="submit" class="btn btn-info" value="Xác nhận thanh toán" name="dongydathang"></a>
                     </div>
 
     </form>
 
     </div>
-    <?php
-    include "view/boxright.php";
-    ?>
 
 </main>
 
