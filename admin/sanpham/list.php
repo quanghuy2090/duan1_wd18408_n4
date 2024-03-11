@@ -24,6 +24,7 @@
                                 }else{
                                     $hinh = "no photo";
                                 }
+
                                 echo '<tr>                       
                                     <td>'.$id.'</td>
                                     <td>'.$name.'</td>
@@ -32,7 +33,7 @@
                                     <td>'.$luotxem.'</td>
                                     <td><a href="'.$suasp.'"><input class="btn btn-success" type="button" value="Sửa"></a>   
                                         <a href="'.$xoasp.'"><input class="btn btn-danger" type="button" value="Xóa"></a></td>
-                                </tr>';
+                                    </tr>';
                             }
                         ?>    
                 </table>

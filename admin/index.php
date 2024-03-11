@@ -168,6 +168,12 @@ include "../model/cart.php";
                 //     $listbill = loadall_bill_admin();
                 //     include "bill/listbill.php";
                 //     break;
+                /* CONTROLLER BINH LUAN */
+                case 'dsbl':
+                    $listbinhluan = loadall_binhluan(0);
+                    include "binhluan/list.php";
+                    break;
+
                 default:
                     include "home.php";
                     break;
