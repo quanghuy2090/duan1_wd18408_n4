@@ -12,8 +12,8 @@
                     <input type="text" name="user" >
                     <label for="">Password:</label>
                     <input type="password" name="pass" ><br>
-                    <input type="submit" value="Đăng ký" name="dangky">
-                    <input type="reset" value="Nhập lại">
+                    <input type="submit" value="Đăng ký" name="dangky" class="btn btn-info mt-2" >
+                    <input type="reset" value="Nhập lại" class="btn btn-info mt-2">
                 </form>
                 <h2 class="thongbao">
                 <?php
