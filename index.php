@@ -71,7 +71,7 @@
                     }
                     
                 }
-                include "view/taikhoan/dangky.php";
+                include "view/taikhoan/dangnhap.php";
                 break;
             case 'edit_taikhoan':
                 if(isset($_POST['capnhat']) && ($_POST['capnhat'])){

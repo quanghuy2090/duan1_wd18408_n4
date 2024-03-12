@@ -72,23 +72,23 @@
     <a class="nav-link text-dark-emphasis" href="#">SET</a>
   </li>
 </ul>
-<form class="d-flex " role="search">
+<form class="d-flex " role="search" action="index.php?act=sanpham" method="post">
   <div class="custom-input" id="search-container">
-  <input class="form-control me-2 custom-input border border-success-subtle" type="search" placeholder="Search" size="25" aria-label="Search">
+  <input class="form-control me-2 custom-input border border-success-subtle" type="search" 
+   placeholder="Search" size="25" aria-label="Search" name="keyword" >
   </div>
   <div class="cus-input">
-  <a href="" class="text-dark-emphasis"><i class="fa-solid fa-user"></i></a>
+  <a href="index.php?act=dangnhap" class="text-dark-emphasis"><i class="fa-solid fa-user"></i></a>
   <a href="index.php?act=viewcart" class="text-dark-emphasis"> <i class="fa-solid fa-cart-shopping"></i></a>
   </div>
 </form>
   </div>
   
 </nav>
-
-
-
+</body>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
 
     </script>
+
