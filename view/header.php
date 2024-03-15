@@ -31,7 +31,7 @@
 <body>
 <nav class="navbar navbar-expand-lg bg-light-subtle border-bottom">
   <div class="container-fluid justify-content-center bg">
-    <a class="navbar-brand " href="index.php">
+    <a class="navbar-brand " href="#">
     <img src="img/logo11.png" width="90px" height="auto" alt="">
 
     </a>
@@ -44,32 +44,24 @@
     
   </li>
   <li class="nav-item">
-    <a class="nav-link text-dark-emphasis" href="">Sản phẩm</a>
+    <a class="nav-link text-dark-emphasis" href="#">Giới thiệu</a>
   </li>
   <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-dark-emphasis" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Quần
+              Sản phẩm
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item text-dark-emphasis" href="#">Sản phẩm 1</a></li>
-            <li><a class="dropdown-item text-dark-emphasis" href="#">Sản phẩm 2</a></li>
+            <li><a class="dropdown-item text-dark-emphasis" href="#">Áo</a></li>
+            <li><a class="dropdown-item text-dark-emphasis" href="#">Quần</a></li>
             <li><a class="dropdown-item text-dark-emphasis" href="#">Sản phẩm 3</a></li>
             <li><a class="dropdown-item text-dark-emphasis" href="#">Sản phẩm 4</a></li>
           </ul>
         </li>
-  <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-dark-emphasis" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Áo
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item text-dark-emphasis" href="#">Sản phẩm 1</a></li>
-            <li><a class="dropdown-item text-dark-emphasis" href="#">Sản phẩm 2</a></li>
-            <li><a class="dropdown-item text-dark-emphasis" href="#">Sản phẩm 3</a></li>
-            <li><a class="dropdown-item text-dark-emphasis" href="#">Sản phẩm 4</a></li>
-          </ul>
-        </li>
+        <li class="nav-item">
+    <a class="nav-link text-dark-emphasis" href="#">Liên hệ</a>
+  </li>
   <li class="nav-item">
-    <a class="nav-link text-dark-emphasis" href="#">SET</a>
+    <a class="nav-link text-dark-emphasis" href="#">Tin tức</a>
   </li>
 </ul>
 <form class="d-flex " role="search" action="index.php?act=sanpham" method="post">
@@ -83,6 +75,7 @@
   </div>
 </form>
   </div>
+  
 </nav>
 </body>
 
@@ -90,5 +83,3 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
 
     </script>
-
-

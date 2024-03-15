@@ -29,9 +29,9 @@
   </button>
 </div>
         <br>
-            <h2 class="center">Tất cả sản phẩm</h2>
+            <h2 class="text-center">Tất cả sản phẩm</h2>
             <br>
-            <div class="items">
+            <div class="items container">
 <?php
 $i = 0;
 $columns = 4; // Số cột mong muốn

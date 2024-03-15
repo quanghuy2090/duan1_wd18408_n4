@@ -20,9 +20,9 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
-</div>
+</div><br>
 
-<main class="catalog  mb ">
+<main class="catalog  mb container">
     <div class="boxleft">
         <h2 style="text-align: center;margin-bottom: 20px;">Sản phẩm theo danh mục</h2>
         <div class="items">
