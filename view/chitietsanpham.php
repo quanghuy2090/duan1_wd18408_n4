@@ -47,10 +47,10 @@ td {
             
             });
         </script>
-        <div class="bl" id="binhluan">
+        <div class="" id="binhluan">
             <form action="">
                 <input type="text" name="msg">
-                <input type="submit" name="guibinhluan" value="Gửi bình luận">
+                <input type="submit"  name="guibinhluan" value="Gửi bình luận">
             </form>
         </div>
 

@@ -28,9 +28,9 @@
                         $tel = "";
                     }
                 ?>
-                <div class="row">
-                    <div class="col-md-12">
-                        <label class="form-label col-3">Tên khách hàng</label>
+                <div class="row text-center">
+                    <div class="col-md-12"> 
+                        <label class="form-label ">Tên khách hàng</label>
                         <td><input type="text" class="form-control ct-input border border-primary-subtle" size="25" name="user" value="<?=$user?>"></td>
                     </div>
                     <div class="col-md-12">
