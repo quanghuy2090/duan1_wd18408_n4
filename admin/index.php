@@ -161,18 +161,28 @@ include "../model/cart.php";
                     $listbill=loadall_bill($kyw="",0);
                     include "bill/listbill.php";
                     break;
-                // case 'xoabill':
-                //     if(isset($_GET['id'])&&($_GET['id']>0)){
-                //         delete_bill($_GET['id']);
-                //     }
-                //     $listbill = loadall_bill_admin();
-                //     include "bill/listbill.php";
-                //     break;
+
+                case 'xoabill':
+                    if(isset($_GET['id'])&&($_GET['id']>0)){
+                        delete_bill($_GET['id']);
+                    }
+                    $listbill = delete_bill();
+                    include "bill/listbill.php";
+                    break;
+
                 /* CONTROLLER BINH LUAN */
                 case 'dsbl':
                     $listbinhluan = loadall_binhluan(0);
                     include "binhluan/list.php";
                     break;
+
+                case 'xoabl':
+                if(isset($_GET['id'])&&($_GET['id']>0)){
+                    delete_binhluan($_GET['id']);
+                }
+                $listbinhluan=loadall_binhluan(0);
+                include "binhluan/list.php";
+                break;    
 
                 default:
                     include "home.php";

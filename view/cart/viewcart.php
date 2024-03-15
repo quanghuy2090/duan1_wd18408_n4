@@ -7,13 +7,12 @@ span{
 }
 
 </style>
-<main class="catalog mb ">
+<main class="catalog mb container ">
     <div class="boxleft"> 
         <div class=" mb">
             <span class="badge text-bg-success ">GIỎ HÀNG</span>
                 <div class="box_content">
-                    <table class="table table-Light	 table-hover">
-                        
+                    <table class="table table-hover">
                         <?php 
                             viewcart(1);
                         ?>

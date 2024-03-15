@@ -31,7 +31,7 @@
 <body>
 <nav class="navbar navbar-expand-lg bg-light-subtle border-bottom">
   <div class="container-fluid justify-content-center bg">
-    <a class="navbar-brand " href="#">
+    <a class="navbar-brand " href="index.php">
     <img src="img/logo11.png" width="90px" height="auto" alt="">
 
     </a>
@@ -44,7 +44,7 @@
     
   </li>
   <li class="nav-item">
-    <a class="nav-link text-dark-emphasis" href="#">Phụ kiện</a>
+    <a class="nav-link text-dark-emphasis" href="./view/sanpham.php">Sản phẩm</a>
   </li>
   <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-dark-emphasis" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -72,23 +72,29 @@
     <a class="nav-link text-dark-emphasis" href="#">SET</a>
   </li>
 </ul>
-<form class="d-flex " role="search">
-  <div class="custom-input" id="search-container">
-  <input class="form-control me-2 custom-input border border-success-subtle" type="search" placeholder="Search" size="25" aria-label="Search">
+
+  <form action="index.php?act=sanpham" class="d-flex " role="search">
+    <div class="custom-input" id="search-container">
+      <input class="form-control me-2 custom-input border border-success-subtle" type="search" placeholder="Search" size="25" aria-label="Search" name="kyw">
+      <!-- <input type="submit" name="timkiem" value="Tìm kiếm"> -->
+    </div>
+
+  <!-- <div class="container-fluid">
+    <form class="d-flex" role="search">
+      <input class="form-control me-2 custom-input border border-success-subtle" type="search" placeholder="Search" aria-label="Search" name="kyw">
+      <button class="btn btn-outline-success" type="submit" name="timkiem">Search</button>
+    </form>
+  </div> -->
+
+
+    <div class="cus-input">
+      <a href="" class="text-dark-emphasis"><i class="fa-solid fa-user"></i></a>
+      <a href="index.php?act=viewcart" class="text-dark-emphasis"> <i class="fa-solid fa-cart-shopping"></i></a>
+    </div>
+  </form>
+
   </div>
-  <div class="cus-input">
-  <a href="" class="text-dark-emphasis"><i class="fa-solid fa-user"></i></a>
-  <a href="index.php?act=viewcart" class="text-dark-emphasis"> <i class="fa-solid fa-cart-shopping"></i></a>
-  </div>
-</form>
-  </div>
-  
 </nav>
 
 
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-
-    </script>
+</script>

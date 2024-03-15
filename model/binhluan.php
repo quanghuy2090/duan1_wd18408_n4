@@ -22,5 +22,8 @@
         $listbl = pdo_query($sql);
         return $listbl;
     }
-
+    function delete_binhluan($id){
+        $sql = "DELETE FROM binhluan WHERE id=".$id;
+        pdo_execute($sql);
+    }
 ?>

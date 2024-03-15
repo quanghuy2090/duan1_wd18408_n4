@@ -4,16 +4,15 @@ td {
 }
 
 </style>
-<main class="catalog  mb ">
-    <div class="boxleft">
+<main class="container ">
+    <div class="text-center">
         <?php extract($sanpham); ?>
-        <div class="  mb">
-            <div class="text-center">
-            <div class="badge text-bg-success text-wrap" style="width: 12rem;">
-Chi tiết sản phẩm
-</div> <br>
-            </div>
-            <div class="">
+        <h3 class="badge text-bg-success text-wrap" style="width: 12rem;">
+            Chi tiết sản phẩm
+        </h3>
+    </div><br>
+
+            <div>
                 <?php 
                     $hinh = $img_path . $img;                
                     echo "<div class='row'>";   
@@ -24,8 +23,6 @@ Chi tiết sản phẩm
                     echo "<h2 class='fw-bold'> $name</h2>"; 
                     echo " <h4 class='text-danger'>$price đ</h4>";               
                     echo "<p class='fw-semibold'>$mota</p>";
-
-
 
                     echo '<form action="index.php?act=addtocart" method="post">
                             <input type="hidden" name="id" value="'.$id.'">
@@ -38,11 +35,10 @@ Chi tiết sản phẩm
                         echo "<div class='col'>";
                         echo "</div>";
                         echo "</div>";
-                        echo "<hr><br>";
+                        echo "<br>";
                 ?>
-
-            </div>
         </div>
+        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script>
             $(document).ready(function(){
@@ -52,10 +48,13 @@ Chi tiết sản phẩm
             });
         </script>
         <div class="bl" id="binhluan">
-
+            <form action="">
+                <input type="text" name="msg">
+                <input type="submit" name="guibinhluan" value="Gửi bình luận">
+            </form>
         </div>
 
-        <div class=" mb">
+        <!-- <div class=" mb">
             <div class="box_content">
                 <?php foreach($sanphamcl as $value): ?>
                 <li>
@@ -65,7 +64,7 @@ Chi tiết sản phẩm
                 </li>
                 <?php endforeach; ?>
             </div>
-        </div>
+        </div> -->
     </div>
     <?php
     include "view/boxright.php";

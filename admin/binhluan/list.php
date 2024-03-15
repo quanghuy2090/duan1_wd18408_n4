@@ -17,8 +17,7 @@
                     <?php
                         foreach($listbinhluan as $binhluan){
                             extract($binhluan);
-                            $suabl="index.php?act=suatk&id=".$id;
-                            $xoabl="index.php?act=xoatk&id=".$id;
+                            $xoabl="index.php?act=xoabl&id=".$id;
                             echo '<tr>
                                 <td>'.$id.'</td>
                                 <td>'.$noidung.'</td>

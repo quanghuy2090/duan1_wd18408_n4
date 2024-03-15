@@ -10,18 +10,20 @@
       <img src="./img/banner3.jpg" class="d-block w-100" width="200" height="500" alt="...">
     </div>
   </div>
+
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </button>
+
   <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
 </div>
+
 <main class="catalog  mb ">
     <div class="boxleft">
-
         <h2 style="text-align: center;margin-bottom: 20px;">Sản phẩm theo danh mục</h2>
         <div class="items">
             <?php
@@ -40,26 +42,27 @@
                 } else {
                     $mr = "mr";
                 }
-                echo '    <div class="col-md-' . (12/$columns) . ' ' . $mr . '">
+                echo '    
+                <div class="col-md-' . (12/$columns) . ' ' . $mr . '">
                 <div class="card" style="width: 18rem;">
                 <a class="item_name" href="' . $linksp . '"><img src="' . $hinh . '" class="card-img-top" width="50" height="300" alt=""></a>
+                
                 <div class="card-body">
-
                 <a class="text-center text-dark-emphasis" href="' . $linksp . '">' . $name . '</a>
                 <p class="text-danger">Giá: ' . $price . ' đ</p>  
                 <form action="index.php?act=addtocart" method="post">
                 <input type="hidden" name="id" value="' . $id . '">
-                <input type="hidden" name="name" value="' . $name . '">
-                <input type="hidden" name="img" value="' . $img . '">
+                <input type="hidden" name="name" value="'. $name . '">
+                <input type="hidden" name="img" value="'.$img . '">
                 <input type="hidden" name="price" value="' . $price . '">
                 <div >
                 <input type="submit" name="addtocart" class="btn btn-primary" value="Thêm giỏ hàng">
                 <input type="submit" name="addtocart" class="btn btn-danger" value="Mua ngay"> 
                 </div>
             </form>    
-                
             </div>
-            </div>                </div>';
+            </div> 
+    </div>';
             $i++;
 
             if ($i % $columns == 0 || $i == count($spnew)) {
@@ -72,6 +75,5 @@
     <?php
     include_once "view/boxright.php";
     ?>
-
 </main>
 <!-- BANNER 2 -->

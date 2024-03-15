@@ -38,6 +38,7 @@
                         ?>    
                 </table>
             </div>
+            
         <a href="index.php?act=addsp"><input  class="btn btn-primary" type="button" value="NHẬP THÊM"></a>     
     </form>
 </div>
