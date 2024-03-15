@@ -9,21 +9,21 @@
                     <form action="index.php?act=dangky" method="post" >
                         <div class="row justify-content-center">
                             <div class="col-4 ">
-                                <label for="">Email:</label>
+                                <label class="form-label">Email:</label>
                                 <input type="email" name="email"
                                     class="form-control ct-input border border-primary-subtle " >
                             </div>
                         </div>
                         <div class="row justify-content-center">
                             <div class="col-4">
-                                <label for="">Username:</label>
+                                <label class="form-label">Username:</label>
                                 <input type="text" name="user"
                                     class="form-control ct-input border border-primary-subtle">
                             </div>
                         </div>
                         <div class="row justify-content-center">
                             <div class="col-4">
-                                <label for="">Password:</label>
+                                <label class="form-label">Password:</label>
                                 <input type="password" name="pass"
                                     class="form-control ct-input border border-primary-subtle"><br>
                             </div>
