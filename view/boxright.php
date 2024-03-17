@@ -34,13 +34,13 @@
                 ?>
                 <div class="row justify-content-start">
                     <div class="col-4">
-                        <label for="">Username:</label>
+                        <label class="form-label">Username:</label>
                         <input type="text" name="user" class="form-control ct-input border border-primary-subtle">
                     </div>
             </div>
             <div class="row justify-content-start">
                 <div class="col-4">
-                    <label for="">Password:</label>
+                    <label class="form-label">Password:</label>
                     <input type="password" name="pass" class="form-control ct-input border border-primary-subtle"><br>
                 </div>
             </div>
