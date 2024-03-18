@@ -4,56 +4,7 @@
         color: #495057;
     }
 </style>
-<div class="">
-    <div class="">
-        <div class="box_title">TÀI KHOẢN</div>
-        <div class="box_content form_account">
-            <?php
-            if (isset($_SESSION['user'])) {
-                extract($_SESSION['user']);
-                ?>
-                <h4>Xin chào:
-                    <?= $user ?>
-                </h4><br>
-                <li class="form_li">
-                    <a href="index.php?act=mybill">Đơn hàng của tôi</a>
-                </li>
-                <li class="form_li">
-                    <a href="index.php?act=edit_taikhoan">Cập nhật tài khoản</a>
-                </li>
-                <?php if ($role == 1) { ?>
-                    <li class="form_li">
-                        <a href="admin/index.php">Đăng nhập Admin</a>
-                    </li>
-                <?php } ?>
-                <li class="form_li">
-                    <a href="index.php?act=thoat">Thoát</a>
-                </li>
-                <?php
-            } else {
-                ?>
-                <div class="row justify-content-start">
-                    <div class="col-4">
-                        <label class="form-label">Username:</label>
-                        <input type="text" name="user" class="form-control ct-input border border-primary-subtle">
-                    </div>
-            </div>
-            <div class="row justify-content-start">
-                <div class="col-4">
-                    <label class="form-label">Password:</label>
-                    <input type="password" name="pass" class="form-control ct-input border border-primary-subtle"><br>
-                </div>
-            </div>
-            <div class="text-start">
-                <input type="submit" value="Đăng nhập" name="dangnhap" class="btn btn-info mt-2">
-                <a href="#" class="btn btn-warning mt-2">Quên mật khẩu?</a>
-                <a href="index.php?act=dangky" class="btn btn-warning mt-2">Đăng kí tài khoản</a>
-            </div>
-            </form>
-            
-        <?php } ?>
-    </div>
-</div>
+
 <div class="text-center">
     <div class="badge text-bg-success text-wrap">DANH MỤC</div> <br>
     <div class="box_content2 product_portfolio"> <br>
@@ -66,7 +17,6 @@
                     <button type="button" class="btn btn-info "><a href="' . $linkdm . '">' . $name . ' </a> </button>
                     
                     ';
-
             }
             ?>
         </ul>

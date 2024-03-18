@@ -57,7 +57,7 @@
                     insert_taikhoan($email,$user,$pass);
                     $thongbao = "Đăng ký thành công";
                 }
-                include "view/taikhoan/dangky.php";
+                include "Modern-Login-master/Modern-Login-master/index.php";
                 break;
             case 'dangnhap':
                 if(isset($_POST['dangnhap']) && ($_POST['dangnhap'])){
@@ -73,7 +73,7 @@
                     
                 }
                 
-                include "view/taikhoan/dangnhap.php";
+                include "Modern-Login-master/Modern-Login-master/index.php";
                 break;
             case 'edit_taikhoan':
                 if(isset($_POST['capnhat']) && ($_POST['capnhat'])){
