@@ -6,7 +6,7 @@
 </style>
 <div class="boxright">
     <div class="mb">
-        <div class="box_title">TÀI KHOẢN</div>
+        <div class="box_title ">TÀI KHOẢN</div>
         <div class="box_content form_account">
             <?php
             if (isset($_SESSION['user'])) {
@@ -32,22 +32,8 @@
                 <?php
             } else {
                 ?>
-                <<div class="row justify-content-start">
-                    <div class="col-4">
-                        <label class="form-label">Username:</label>
-                        <input type="text" name="user" class="form-control ct-input border border-primary-subtle">
-                    </div>
-            </div>
-            <div class="row justify-content-start">
-                <div class="col-4">
-                    <label class="form-label">Password:</label>
-                    <input type="password" name="pass" class="form-control ct-input border border-primary-subtle"><br>
-                </div>
-            </div>
             <div class="text-start">
-                <input type="submit" value="Đăng nhập" name="dangnhap" class="btn btn-info mt-2">
-                <a href="#" class="btn btn-warning mt-2">Quên mật khẩu?</a>
-                <a href="index.php?act=dangky" class="btn btn-warning mt-2">Đăng kí tài khoản</a>
+                <a href="index.php?act=dangnhap" class="btn btn-info mt-2">Đăng nhập</a>
             </div>
             </form>
             
