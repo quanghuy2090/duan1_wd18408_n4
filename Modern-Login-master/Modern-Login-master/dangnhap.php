@@ -30,7 +30,7 @@
 
                             <input type="submit" value="Đăng nhập" name="dangnhap" class="btn btn-info mt-2">
                         </div>
-                        <h2 class="text-center" >
+                        <h2 class="text-center text-danger m-2" >
                             <?php
                             if (isset ($thongbao) && ($thongbao) != "") {
                                 echo $thongbao;
