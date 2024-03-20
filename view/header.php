@@ -39,9 +39,17 @@
 <body>
   <nav class="navbar navbar-expand-lg bg-light-subtle border-bottom">
     <div class="container-fluid justify-content-center bg">
-      <a class="navbar-brand " href="#">
+      <div class="dropdown">
+        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="./img/danhmuc.png" width="50px" alt="">
+        </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Áo</a></li>
+        <li><a class="dropdown-item" href="#">Quần</a></li>
+      </ul>
+  </div>
+      <a class="navbar-brand " href="index.php">
         <img src="img/logo11.png" width="90px" height="auto" alt="">
-
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,8 +71,8 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item text-dark-emphasis" href="#">Áo</a></li>
             <li><a class="dropdown-item text-dark-emphasis" href="#">Quần</a></li>
-            <li><a class="dropdown-item text-dark-emphasis" href="#">Sản phẩm 3</a></li>
-            <li><a class="dropdown-item text-dark-emphasis" href="#">Sản phẩm 4</a></li>
+            <li><a class="dropdown-item text-dark-emphasis" href="#">Set</a></li>
+            <li><a class="dropdown-item text-dark-emphasis" href="#">Giầy</a></li>
           </ul>
         </li>
         <li class="nav-item">

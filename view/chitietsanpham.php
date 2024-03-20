@@ -29,6 +29,7 @@ td {
                             <input type="hidden" name="name" value="'.$name.'">
                             <input type="hidden" name="img" value="'.$img.'">
                             <input type="hidden" name="price" value="'.$price.'">
+
                             <input type="submit" name="addtocart" class="btn btn-primary" value="Thêm giỏ hàng">
                         </form>';
                         echo "</div>";
@@ -38,7 +39,7 @@ td {
                         echo "<br>";
                 ?>
         </div>
-        
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script>
             $(document).ready(function(){
@@ -47,10 +48,10 @@ td {
             
             });
         </script>
-        <div class="bl" id="binhluan">
+        <div class="" id="binhluan">
             <form action="">
                 <input type="text" name="msg">
-                <input type="submit" name="guibinhluan" value="Gửi bình luận">
+                <button><input type="submit" name="guibinhluan">Gửi bình luận</button>
             </form>
         </div>
 

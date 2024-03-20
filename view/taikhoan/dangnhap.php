@@ -9,7 +9,7 @@
                     <form action="index.php?act=dangnhap" method="post">
                         <div class="row justify-content-center">
                             <div class="col-4">
-                                <label class="form-label">Username:</label>
+                                <label for="">Username:</label>
                                 <input type="text" name="user"
                                     class="form-control ct-input border border-primary-subtle">
                             </div>
