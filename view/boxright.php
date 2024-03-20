@@ -6,7 +6,7 @@
 </style>
 <div class="boxright">
     <div class="mb">
-        <div class="box_title ">TÀI KHOẢN</div>
+        <div class="box_title text-center">TÀI KHOẢN</div>
         <div class="box_content form_account">
             <?php
             if (isset($_SESSION['user'])) {
@@ -32,7 +32,7 @@
                 <?php
             } else {
                 ?>
-            <div class="text-start">
+            <div class="text-center">
                 <a href="index.php?act=dangnhap" class="btn btn-info mt-2">Đăng nhập</a>
             </div>
             </form>

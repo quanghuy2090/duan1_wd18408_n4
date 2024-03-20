@@ -34,8 +34,8 @@
                             </div>
                         </div>
                         <div class="text-center">
-                            <button class=" btn btn-info">Đăng ký</button>
-                            <h2>
+                            <input type="submit" value="Đăng ký" name="dangky" class="btn btn-info mt-2">
+                            <h2 class="text-center">
                                 <?php
                                 if (isset ($thongbao) && ($thongbao) != "") {
                                     echo $thongbao;
@@ -57,5 +57,4 @@
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
 </main>

@@ -27,16 +27,16 @@
                             </div>
                         </div>
                         <div class="text-center">
-                            <a href="#" class=" btn btn-info">Quên mật khẩu?</a>
-                            <button class=" btn btn-info">Đăng nhập</button>
-                            <h2>
-                                <?php
-                                if (isset ($thongbao) && ($thongbao) != "") {
-                                    echo $thongbao;
-                                }
-                                ?>
-                            </h2>
+
+                            <input type="submit" value="Đăng nhập" name="dangnhap" class="btn btn-info mt-2">
                         </div>
+                        <h2 class="text-center" >
+                            <?php
+                            if (isset ($thongbao) && ($thongbao) != "") {
+                                echo $thongbao;
+                            }
+                            ?>
+                        </h2>
                         <div class="row justify-content-center">
                             <div class="col-10">
                                 <h1 class="text-center">Chưa có tài khoản? Đăng ký ngay!</h1>
@@ -51,5 +51,4 @@
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
 </main>
