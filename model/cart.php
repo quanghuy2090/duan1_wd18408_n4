@@ -140,6 +140,9 @@
                 case '3':
                     $tt = "Đã giao";
                     break;
+                case '4':
+                    $tt = "Hủy đơn hàng";
+                    break;    
                 default:
                     $tt = "Đơn hàng mới";
                     break;

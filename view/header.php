@@ -40,7 +40,7 @@
   <nav class="navbar navbar-expand-lg bg-light-subtle border-bottom">
     <div class="container-fluid justify-content-center bg">
       <div class="dropdown">
-        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <button class="btn dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
           <img src="./img/danhmuc.png" width="50px" alt="">
         </button>
       <ul class="dropdown-menu">
