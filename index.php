@@ -57,7 +57,7 @@
                     insert_taikhoan($email,$user,$pass);
                     $thongbao = "Đăng ký thành công";
                 }
-                include "Modern-Login-master/Modern-Login-master/index.php";
+                include "Modern-Login-master/Modern-Login-master/dangky.php";
                 break;
             case 'dangnhap':
                 if(isset($_POST['dangnhap']) && ($_POST['dangnhap'])){
@@ -70,10 +70,9 @@
                     }else{
                         $thongbao = "Tài khoản hoặc mật khẩu không đúng. Vui lòng kiểm tra hoặc đăng ký!";
                     }
-                    
                 }
                 
-                include "Modern-Login-master/Modern-Login-master/index.php";
+                include "Modern-Login-master/Modern-Login-master/dangnhap.php";
                 break;
             case 'edit_taikhoan':
                 if(isset($_POST['capnhat']) && ($_POST['capnhat'])){
