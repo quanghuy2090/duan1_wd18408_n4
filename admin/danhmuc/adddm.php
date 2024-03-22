@@ -1,6 +1,6 @@
 
-
-    <section>  <header>
+<section>  
+    <header>
         <h1>Thêm danh mục mới</h1>
     </header>
         <form action="index.php?act=adddm" method="post">
@@ -17,5 +17,5 @@
             if(isset($thongbao)&&($thongbao!=""))
             echo $thongbao;
         ?>   
-        </form>
-    </section>
+    </form>
+</section>

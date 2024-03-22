@@ -31,7 +31,7 @@
                 }else{
                     $iddm=0;
                 }
-                $dssp=loadall_sanpham("",$iddm);
+                $dssp=loadall_sanpham($kyew,$iddm);
                 $tendm = load_ten_dm($iddm);
                 include "view/sanpham.php";
                 break;

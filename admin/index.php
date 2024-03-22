@@ -19,6 +19,18 @@
                 insert_danhmuc($tenloai);
                 $thongbao="Thêm thành công";
             }
+            $tenloaiErr = "";
+            $tenloai = "";
+            if($_SERVER["REQUEST_METHOD"] == "POST"){
+                if(empty($_POST["name"])){
+                    $tenloaiErr = "Vui long nhap ten loai!";
+                }else{
+                    $tenloai = test_input($_POST["tenloai"]);
+                    if(!preg_match("/^[a-zA-Z-' ]*$/", $tenloai)){
+                        $tenloaiErr = "Chỉ cho phép chữ cái và khoảng trắng";
+                    }
+                }
+            }
             include "danhmuc/adddm.php";
             break;
 
