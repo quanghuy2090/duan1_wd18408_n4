@@ -4,7 +4,7 @@
             <div class="form-container sign-in">
                 <div class="container">
                     <form class="form-control" method="post" action="index.php?act=dangnhap">
-                        <h1 class="text-center">Đăng ký</h1>
+                        <h1 class="text-center">ĐĂNG KÝ</h1>
                         <div class="social-icons text-center">
                             <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
                             <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
@@ -35,7 +35,7 @@
                         </div>
                         <div class="text-center">
                             <input type="submit" value="Đăng ký" name="dangky" class="btn btn-info mt-2">
-                            <h2 class="text-center text-primary m-2">
+                            <h2 class="text-center text-success m-2">
                                 <?php
                                 if (isset ($thongbao) && ($thongbao) != "") {
                                     echo $thongbao;
