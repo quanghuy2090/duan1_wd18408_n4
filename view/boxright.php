@@ -6,7 +6,7 @@
 </style>
 <div class="boxright">
     <div class="mb">
-        <div class="box_title text-center">TÀI KHOẢN</div>
+        <h3 class="box_title text-center">TÀI KHOẢN</h3>
         <div class="box_content form_account">
             <?php
             if (isset($_SESSION['user'])) {
