@@ -4,9 +4,9 @@
         color: #495057;
     }
 </style>
-<div class="boxright">
+<!-- <div class="boxright">
     <div class="mb">
-        <h3 class="box_title text-center">TÀI KHOẢN</h3>
+        <div class="box_title text-center">TÀI KHOẢN</div>
         <div class="box_content form_account">
             <?php
             if (isset($_SESSION['user'])) {
@@ -39,7 +39,7 @@
             
         <?php } ?>
     </div>
-</div>
+</div> -->
 <div class="text-center">
     <div class="badge text-bg-success text-wrap">DANH MỤC</div> <br>
     <div class="box_content2 product_portfolio"> <br>

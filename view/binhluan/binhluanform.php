@@ -23,7 +23,8 @@
 <body>
     <div class="mb">
         <div class="">
-            <div class="box_title ">BÌNH LUẬN</div>
+            <div class="box_title text-danger">BÌNH LUẬN</div>
+            <hr>
             <div class="box_content form_account">
                 <?php
                 if(isset($_SESSION['user'])){
@@ -34,7 +35,7 @@
                     <?php
                         foreach ($dsbl as $bl){
                             extract($bl);
-                            echo '<tr><td>'.$noidung.'</td>';
+                            echo '<tr><td> '.$noidung.'</td>';
                             echo '<td>'.$iduser.'</td>';
                             echo '<td>'.$ngaybinhluan.'</td></tr>';
                                     
@@ -53,17 +54,21 @@
                 }else{
 
             ?>
-            <table>         
+            
+       
                     <?php
                         foreach ($dsbl as $bl){
                             extract($bl);
-                            echo '<tr><td>'.$noidung.'</td>';
-                            echo '<td>'.$iduser.'</td>';
-                            // echo '<td>'.$ngaybinhluan.'</td></tr>';
-                                    
+                            echo '<div><strong>'.$user.'</strong></div>';
+                            echo '<div><em>'.$ngaybinhluan.'</em></div>';
+                            echo '<div>'.$noidung.'</div>';  
+                            echo '<i class="fa-solid fa-thumbs-up fa-lg" id="thumbs-up"></i> <span id="like-count">0</span>';
+                            echo  '<hr>';
+
+
                         }
                     ?>
-                </table>
+
             <h3>Đăng nhập để gửi bình luận!</h3>
             <?php } ?>
 
@@ -82,3 +87,13 @@
     </div>
 </body>
 </html>
+<script>
+    var likeCount = parseInt(localStorage.getItem("thumbsUpQuantity")) || 0;
+    document.getElementById("like-count").textContent = likeCount;
+
+    document.getElementById("thumbs-up").addEventListener("click", function() {
+        likeCount++;
+        localStorage.setItem("thumbsUpQuantity", likeCount);
+        document.getElementById("like-count").textContent = likeCount;
+    });
+</script>

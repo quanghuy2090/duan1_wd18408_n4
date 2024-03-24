@@ -25,13 +25,13 @@
             Về chúng tôi
           </h6>
           <p>
-            <a href="#!" class="text-reset">Giới thiệu</a>
+            <a href="index.php?act=gioithieu" class="text-reset">Giới thiệu</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Tin tức</a>
+            <a href="index.php?act=tintuc" class="text-reset">Tin tức</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Liên hệ</a>
+            <a href="index.php?act=lienhe" class="text-reset">Liên hệ</a>
           </p>
           <p>
             <a href="#!" class="text-reset">Bản đồ</a>

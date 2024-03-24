@@ -18,6 +18,7 @@ function test_input($data)
     $data = htmlspecialchars($data);
     return $data;
 }
+
 if (!isset ($_SESSION['mycart']))
     $_SESSION['mycart'] = [];
 
@@ -58,56 +59,56 @@ if (isset ($_GET['act']) && ($_GET['act'] != "")) {
                 include "view/home.php";
             }
             break;
-        case 'dangky':
-            if (isset ($_POST['dangky']) && $_POST['dangky']) {
-                $email = $_POST['email'];
-                $user = $_POST['user'];
-                $pass = $_POST['pass'];
-                insert_taikhoan($email, $user, $pass);
-                $checkuser = checkuser($user,$pass);
-                $checkemail = checkemail($email);
-                if (empty ($user)) {
-                    $userErr = "* Chưa điền Username";
-                }elseif (is_array($checkuser)) {
-                    $userErr = "* Đã tồn tại Username";
+            case 'dangky':
+                if (isset ($_POST['dangky']) && $_POST['dangky']) {
+                    $email = $_POST['email'];
+                    $user = $_POST['user'];
+                    $pass = $_POST['pass'];
+                    insert_taikhoan($email, $user, $pass);
+                    $checkuser = checkuser($user,$pass);
+                    $checkemail = checkemail($email);
+                    if (empty ($user)) {
+                        $userErr = "* Chưa điền Username";
+                    }elseif (is_array($checkuser)) {
+                        $userErr = "* Đã tồn tại Username";
+                    }
+                    if (empty ($pass)) {
+                        $passErr = "* Chưa điền Password";
+                    }
+                    if (empty ($email)) {
+                        $emailErr = "* Chưa điền Email";
+                    }elseif (is_array($checkemail)) {
+                        $emailErr = "* Email đã được sử dụng";
+                    }
+                    if (empty ($userErr) && empty ($emailErr) && empty ($passErr)) {
+                        header('Location: index.php?act=dangnhap');
+                    }
                 }
-                if (empty ($pass)) {
-                    $passErr = "* Chưa điền Password";
+                include "Modern-Login-master/Modern-Login-master/dangky.php";
+                break;
+            case 'dangnhap':
+                if (isset ($_POST['dangnhap']) && ($_POST['dangnhap'])) {
+                    $user = $_POST['user'];
+                    $pass = $_POST['pass'];
+                    $checkuser = checkuser($user, $pass);
+                    if (is_array($checkuser)) {
+                        $_SESSION['user'] = $checkuser;
+                        header('Location: index.php');
+                    } elseif (empty ($user)) {
+                        $userErr = "* Chưa điền Username";
+                    } else {
+                        $thongbao = "Tài khoản hoặc mật khẩu không đúng. Vui lòng kiểm tra hoặc đăng ký!";
+                    }
+                    if (empty ($pass)) {
+                        $passErr = "* Chưa điền Password";
+                    }
+    
                 }
-                if (empty ($email)) {
-                    $emailErr = "* Chưa điền Email";
-                }elseif (is_array($checkemail)) {
-                    $emailErr = "* Email đã được sử dụng";
-                }
-                if (empty ($userErr) && empty ($emailErr) && empty ($passErr)) {
-                    header('Location: index.php?act=dangnhap');
-                }
-            }
-            include "Modern-Login-master/Modern-Login-master/dangky.php";
-            break;
-        case 'dangnhap':
-            if (isset ($_POST['dangnhap']) && ($_POST['dangnhap'])) {
-                $user = $_POST['user'];
-                $pass = $_POST['pass'];
-                $checkuser = checkuser($user, $pass);
-                if (is_array($checkuser)) {
-                    $_SESSION['user'] = $checkuser;
-                    header('Location: index.php');
-                } elseif (empty ($user)) {
-                    $userErr = "* Chưa điền Username";
-                } else {
-                    $thongbao = "Tài khoản hoặc mật khẩu không đúng. Vui lòng kiểm tra hoặc đăng ký!";
-                }
-                if (empty ($pass)) {
-                    $passErr = "* Chưa điền Password";
-                }
-
-            }
-            include "Modern-Login-master/Modern-Login-master/dangnhap.php";
-            break;
-        case 'user':
-            include "view/taikhoan/user.php";
-            break;
+                include "Modern-Login-master/Modern-Login-master/dangnhap.php";
+                break;
+            case 'user':
+                include "view/taikhoan/user.php";
+                break;
         case 'edit_taikhoan':
             if (isset ($_POST['capnhat']) && ($_POST['capnhat'])) {
                 $user = $_POST['user'];
@@ -184,6 +185,15 @@ if (isset ($_GET['act']) && ($_GET['act'] != "")) {
         case 'thoat':
             session_unset();
             header('Location: index.php');
+            break;
+        case 'gioithieu':
+            include "view/gioithieu.php";
+            break;
+        case 'lienhe':
+            include "view/lienhe.php";
+            break;
+        case 'tintuc':
+            include "view/tintuc.php";
             break;
 
 
