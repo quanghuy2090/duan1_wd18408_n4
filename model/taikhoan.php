@@ -18,6 +18,16 @@
         $result = pdo_query_one($sql);
         return $result;
     }
+    function checkaddress($address){
+        $sql = "select * from taikhoan where address = '".$address."'";
+        $result = pdo_query_one($sql);
+        return $result;
+    }
+    function checktel($tel){
+        $sql = "select * from taikhoan where tel = '".$tel."'";
+        $result = pdo_query_one($sql);
+        return $result;
+    }
     function update_taikhoan($id,$user,$pass,$email,$address,$tel){
         $sql = "UPDATE taikhoan SET user='".$user."', pass='".$pass."', email='".$email."', address='".$address."', tel='".$tel."' WHERE id=".$id;
         pdo_execute($sql);
@@ -27,4 +37,3 @@
         pdo_execute($sql);
     }
 
-?>

@@ -113,7 +113,46 @@ if (isset ($_GET['act']) && ($_GET['act'] != "")) {
                 $address = $_POST['address'];
                 $tel = $_POST['tel'];
                 $id = $_POST['id'];
-
+                /*
+                $checkuser = checkuser($user, $pass);
+                $checkemail = checkemail($email);
+                $checkaddress = checkaddress($address);
+                $checktel = checktel($tel);
+                $regex = "/([a-z0-9_]+|[a-z0-9_]+\.[a-z0-9_]+)@(([a-z0-9]|[a-z0-9]+\.[a-z0-9]+)+\.([a-z]{2,4}))/i";
+                if (empty ($user)) {
+                    $userErr = "* Chưa điền Username";
+                }elseif (is_array($checkuser)) {
+                    $user = $checkuser;
+                    $userErr = "* Username đã tồn tại";
+                }
+                if (empty ($pass)) {
+                    $passErr = "* Chưa điền Password";
+                }
+                if (empty ($email)) {
+                    $emailErr = "* Chưa điền Email";
+                }elseif (!preg_match($regex, $email)) {
+                    $emailErr = "Vui lòng nhập địa chỉ email hợp lệ";
+                }elseif (is_array($checkemail)) {
+                    $email = $checkemail;
+                    $emailErr = "* Email đã tồn tại";
+                }
+                if (empty ($address)) {
+                    $addressErr = "* Chưa điền Address";
+                }elseif (is_array($checkaddress)) {
+                    $address = $checkaddress;
+                    $addressErr = "* Address đã tồn tại";
+                }
+                if (empty ($tel)) {
+                    $telErr = "* Chưa điền Tel";
+                }elseif (is_array($checktel)) {
+                    $tel = $checktel;
+                    $telErr = "* Tel đã tồn tại";
+                }
+                if (empty ($userErr) && empty ($emailErr) && empty ($passErr)) {
+                   
+                    header('Location: index.php?act=dangnhap');
+                }
+                */
                 update_taikhoan($id, $user, $pass, $email, $address, $tel);
                 $_SESSION['user'] = checkuser($user, $pass);
                 header('Location: index.php?act=edit_taikhoan');
@@ -200,4 +239,3 @@ if (isset ($_GET['act']) && ($_GET['act'] != "")) {
 
 include "view/footer.php";
 ob_end_flush();
-?>
