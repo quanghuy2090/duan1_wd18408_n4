@@ -23,8 +23,8 @@ if (isset ($_GET['act']) && ($_GET['act'] != "")) {
     $act = $_GET['act'];
     switch ($act) {
         case "sanpham":
-            if (isset ($_POST['kyw']) && $_POST['kyw'] > 0) {
-                $kyw = $_POST['kyw'];
+            if (isset ($_POST['keyword']) && $_POST['keyword'] > 0) {
+                $kyw = $_POST['keyword'];
             } else {
                 $kyw = "";
             }
@@ -33,7 +33,7 @@ if (isset ($_GET['act']) && ($_GET['act'] != "")) {
             } else {
                 $iddm = 0;
             }
-            $dssp = loadall_sanpham("", $iddm);
+            $dssp = loadall_sanpham($kyw, $iddm);
             $tendm = load_ten_dm($iddm);
             include "view/sanpham.php";
             break;
@@ -51,6 +51,7 @@ if (isset ($_GET['act']) && ($_GET['act'] != "")) {
                 include "view/home.php";
             }
             break;
+            
         case 'dangky':
             if (isset ($_POST['dangky']) && $_POST['dangky']) {
                 $email = $_POST['email'];

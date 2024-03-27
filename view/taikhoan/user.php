@@ -42,7 +42,7 @@
                             ?>
                     <div class="text-center">
                         <a href="index.php?act=dangnhap" class="btn btn-info mt-2">Đăng nhập</a>
-                        <a href="index.php?act=ddangky" class="btn btn-info mt-2">Đăng ký</a>
+                        <a href="index.php?act=dangky" class="btn btn-info mt-2">Đăng ký</a>
                     </div>
                     </form>
                 <?php } ?>

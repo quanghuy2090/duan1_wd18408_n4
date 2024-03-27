@@ -42,10 +42,7 @@
                 <input type="reset" value="Nhập lại"><br><br>
             <a href="index.php?act=listsp">Danh sách</a>
         </div>
-        <?php 
-                if(isset($thongbao)&&($thongbao!=""))
-                echo $thongbao;
-            ?>
+
         </form>
     </section>
 

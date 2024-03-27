@@ -13,22 +13,14 @@
         switch ($act) {
         // CONTROLLER DANH MỤC
         case 'adddm':
+            $thongbao1 = [];
             // kiểm tra người dùng có click vào nút add hay không 
             if(isset($_POST['themmoi']) && ($_POST['themmoi'])){
                 $tenloai=$_POST['tenloai']; 
                 insert_danhmuc($tenloai);
                 $thongbao="Thêm thành công";
-            }
-            $tenloaiErr = "";
-            $tenloai = "";
-            if($_SERVER["REQUEST_METHOD"] == "POST"){
-                if(empty($_POST["name"])){
-                    $tenloaiErr = "Vui long nhap ten loai!";
-                }else{
-                    $tenloai = test_input($_POST["tenloai"]);
-                    if(!preg_match("/^[a-zA-Z-' ]*$/", $tenloai)){
-                        $tenloaiErr = "Chỉ cho phép chữ cái và khoảng trắng";
-                    }
+                if(isset($thongbao1)){
+                    $thongbao1['tenloai'] = "Vui lòng nhập tên loại.";
                 }
             }
             include "danhmuc/adddm.php";
@@ -177,6 +169,8 @@
                 $listtaikhoan=loadall_taikhoan();
             include "taikhoan/listtk.php";
             break;
+
+        // CONTROLLER BINH LUAN
         case 'listbl': 
             $listbinhluan = loadall_binhluan(0);
             include "binhluan/listbl.php";
