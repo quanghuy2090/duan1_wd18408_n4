@@ -10,7 +10,7 @@
             <div class="row">
                 <h2 class="box_title text-center">TÀI KHOẢN</h2>
                 <div class="col-1"></div>
-                <div class="col-3 justify-content-start">
+                <div class="col-3 text-start">
                     <div class="box_content form_account ">
                         <?php
                         if (isset ($_SESSION['user'])) {
@@ -35,18 +35,17 @@
                                     <a href="index.php?act=thoat">Thoát</a>
                                 </li>
                             </div>
-                            <?php
+                        </div>
+                    </div>
+                    <?php
                         } else {
                             ?>
-                            <div class="text-center">
-                                <a href="index.php?act=dangnhap" class="btn btn-info mt-2">Đăng nhập</a>
-                                <a href="index.php?act=ddangky" class="btn btn-info mt-2">Đăng ký</a>
-                            </div>
-                            </form>
-
-                        <?php } ?>
+                    <div class="text-center">
+                        <a href="index.php?act=dangnhap" class="btn btn-info mt-2">Đăng nhập</a>
+                        <a href="index.php?act=ddangky" class="btn btn-info mt-2">Đăng ký</a>
                     </div>
-                </div>
+                    </form>
+                <?php } ?>
             </div>
         </div>
     </div>
