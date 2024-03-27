@@ -3,7 +3,54 @@
     a {
   text-decoration: none;
 }
+    /* Nền và viền của thẻ select */
+    #filterSelect {
+        background-color: #f2f2f2;
+        border: none;
+        padding: 10px;
+        font-size: 16px;
+        width: 200px;
+        border-radius: 5px;
+    }
 
+    /* Tùy chỉnh kiểu mũi tên xuống */
+    #filterSelect::after {
+        content: "\25BC";
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        color: #888;
+    }
+
+    /* Tùy chỉnh tùy chọn trong danh sách */
+    #filterSelect option {
+        background-color: #fff;
+        color: #555;
+    }
+    .col-4 {
+        padding: 0;
+    }
+
+    .mpvc {
+        position: relative;
+        overflow: hidden;
+        border: 2px solid #ccc;
+        border-radius: 15px;
+        width: 400px; /* Điều chỉnh kích thước khung */
+        margin-left: auto; /* Căn giữa */
+        margin-right: auto; /* Căn giữa */
+    }
+
+    .mpvc img {
+        width: 100%;
+        height: 170px;
+        transition: transform 0.4s ease;
+    }
+
+    .mpvc:hover img {
+        transform: scale(1.1);
+    }
 </style>
 
 <main class="catalog  mb ">
@@ -27,11 +74,38 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
+</div> <br>
+<div class="row ">
+    <div class="col-4">
+        <div class="mpvc">
+            <img src="img/GiaohangMP.png" alt="">
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="mpvc">
+            <img src="img/doitra.jpg" alt="">
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="mpvc">
+            <img src="img/l1d1.png" alt="">
+        </div>
+    </div>
 </div>
         <br>
             <h2 class="text-center">Tất cả sản phẩm</h2>
             <br>
             <div class="items container">
+            <select id="filterSelect" aria-label="Disabled select example" onchange="redirectToLink()">
+              <option selected value="0">Bộ lọc....</option>
+              <option value="1">Áo phông</option>
+              <option value="2">Áo khoác</option>
+              <option value="3">Quần jeans</option>
+              <option value="4">Quần short</option>
+              <option value="5">Combo</option>
+            </select> 
+            <br> <br>
+
 <?php
 $i = 0;
 $columns = 4; // Số cột mong muốn
@@ -85,4 +159,21 @@ foreach ($spnew as $sp) {
 </main>
 
 
- 
+<script>
+    function redirectToLink() {
+        var selectElement = document.getElementById("filterSelect");
+        var selectedValue = selectElement.value;
+        
+        if (selectedValue === "1") {
+            window.location.href = "index.php?act=sanpham&iddm=1";
+        } else if (selectedValue === "2") {
+            window.location.href = "index.php?act=sanpham&iddm=2";
+        } else if (selectedValue === "3") {
+            window.location.href = "index.php?act=sanpham&iddm=3";
+        } else if (selectedValue === "4") {
+            window.location.href = "index.php?act=sanpham&iddm=5";
+        } else if (selectedValue === "5") {
+            window.location.href = "index.php?act=sanpham&iddm=6";
+        }
+    }
+</script>

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 04, 2024 lúc 01:36 PM
--- Phiên bản máy phục vụ: 10.4.32-MariaDB
--- Phiên bản PHP: 8.2.12
+-- Thời gian đã tạo: Th3 24, 2024 lúc 08:38 AM
+-- Phiên bản máy phục vụ: 10.4.28-MariaDB
+-- Phiên bản PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -109,7 +109,8 @@ INSERT INTO `binhluan` (`id`, `noidung`, `iduser`, `idpro`, `ngaybinhluan`) VALU
 (2, 'Sản phẩm rất tốt', 3, 1, '2023-09-22'),
 (15, 'chất lượng tốt', 1, 7, '0000-00-00'),
 (16, 'ok', 1, 7, '0000-00-00'),
-(17, 'ok', 1, 6, '0000-00-00');
+(17, 'ok', 1, 6, '2024-03-18'),
+(18, 'Đẹp nhưng đắt nên không mua', 1, 15, '2024-03-06');
 
 -- --------------------------------------------------------
 
@@ -193,11 +194,11 @@ CREATE TABLE `danhmuc` (
 --
 
 INSERT INTO `danhmuc` (`id`, `name`) VALUES
-(1, 'Tiếng Anh'),
-(2, 'Văn Học'),
-(3, 'Tiếng Nhật'),
-(5, 'Manga - Comic'),
-(6, 'Thiếu Nhi');
+(1, 'Áo phông'),
+(2, 'Áo khoác'),
+(3, 'Quần jeans'),
+(5, 'Quần short'),
+(6, 'Combo');
 
 -- --------------------------------------------------------
 
@@ -316,7 +317,7 @@ ALTER TABLE `bill`
 -- AUTO_INCREMENT cho bảng `binhluan`
 --
 ALTER TABLE `binhluan`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT cho bảng `cart`
@@ -340,7 +341,7 @@ ALTER TABLE `sanpham`
 -- AUTO_INCREMENT cho bảng `taikhoan`
 --
 ALTER TABLE `taikhoan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

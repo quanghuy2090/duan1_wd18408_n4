@@ -31,4 +31,3 @@ function loadall_danhmuc(){
             return "";
         }
     }
-?>

@@ -40,14 +40,7 @@
   <nav class="navbar navbar-expand-lg bg-light-subtle border-bottom">
     <div class="container-fluid justify-content-center bg">
       <div class="dropdown">
-        <button class="btn dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="./img/danhmuc.png" width="50px" alt="">
-        </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Áo</a></li>
-        <li><a class="dropdown-item" href="#">Quần</a></li>
-      </ul>
-  </div>
+      </div>
       <a class="navbar-brand " href="index.php">
         <img src="img/logo11.png" width="90px" height="auto" alt="">
       </a>
@@ -61,7 +54,7 @@
 
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark-emphasis" href="#">Giới thiệu</a>
+          <a class="nav-link text-dark-emphasis" href="index.php?act=gioithieu">Giới thiệu</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-dark-emphasis" href="#" role="button" data-bs-toggle="dropdown"
@@ -69,17 +62,18 @@
             Sản phẩm
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item text-dark-emphasis" href="#">Áo</a></li>
-            <li><a class="dropdown-item text-dark-emphasis" href="#">Quần</a></li>
-            <li><a class="dropdown-item text-dark-emphasis" href="#">Set</a></li>
-            <li><a class="dropdown-item text-dark-emphasis" href="#">Giầy</a></li>
+            <li><a class="dropdown-item text-dark-emphasis" href="index.php?act=sanpham&iddm=1">Áo phông</a></li>
+            <li><a class="dropdown-item text-dark-emphasis" href="index.php?act=sanpham&iddm=2">Áo khoác</a></li>
+            <li><a class="dropdown-item text-dark-emphasis" href="index.php?act=sanpham&iddm=3">Quần jeans</a></li>
+            <li><a class="dropdown-item text-dark-emphasis" href="index.php?act=sanpham&iddm=5">Quần short</a></li>
+            <li><a class="dropdown-item text-dark-emphasis" href="index.php?act=sanpham&iddm=">Combo</a></li>
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark-emphasis" href="#">Liên hệ</a>
+          <a class="nav-link text-dark-emphasis" href="index.php?act=lienhe">Liên hệ</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark-emphasis" href="#">Tin tức</a>
+          <a class="nav-link text-dark-emphasis" href="index.php?act=tintuc">Tin tức</a>
         </li>
       </ul>
       <form class="d-flex " role="search" action="index.php?act=sanpham" method="post">
@@ -88,7 +82,7 @@
             size="25" aria-label="Search" name="keyword">
         </div>
         <div class="cus-input">
-          <a href="index.php?act=dangnhap" class="text-dark-emphasis"><i class="fa-solid fa-user"></i></a>
+          <a href="index.php?act=user" class="text-dark-emphasis"><i class="fa-solid fa-user"></i></a>
           <a href="index.php?act=viewcart" class="text-dark-emphasis"> <i class="fa-solid fa-cart-shopping"></i></a>
         </div>
       </form>

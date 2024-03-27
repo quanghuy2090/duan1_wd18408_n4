@@ -51,7 +51,7 @@ td {
         <div class="" id="binhluan">
             <form action="">
                 <input type="text" name="msg">
-                <button><input type="submit" name="guibinhluan">Gửi bình luận</button>
+                <button><input type="submit" class="btn btn-warning" name="guibinhluan">Gửi bình luận</button>
             </form>
         </div>
 

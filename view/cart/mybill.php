@@ -3,7 +3,7 @@
         <div class="mb">
             <div class="box_title">ĐƠN HÀNG CỦA BẠN</div>
                 <div class="box_content">
-                    <table border="1">
+                    <table class="table-bordered table-hover ml-2 text-center" width=100% >
                         <tr>
                             <th>MÃ ĐƠN HÀNG</th>
                             <th>NGÀY ĐẶT HÀNG</th>
@@ -32,7 +32,7 @@
                 </div>
         </div>
         <div class="row mb center mb2">
-            <a href="index.php"><input type="button" value="Về trang chủ"></a>         
+            <a href="index.php"><input type="button" value="Về trang chủ" class="btn btn-info" ></a>         
         </div>
     </div>
     <?php

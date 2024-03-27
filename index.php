@@ -56,8 +56,30 @@ if (isset ($_GET['act']) && ($_GET['act'] != "")) {
                 $email = $_POST['email'];
                 $user = $_POST['user'];
                 $pass = $_POST['pass'];
-                insert_taikhoan($email, $user, $pass);
-                $thongbao = "Đăng ký thành công";
+                $checkuser = checkuser($user, $pass);
+                $checkemail = checkemail($email);
+                $regex = "/([a-z0-9_]+|[a-z0-9_]+\.[a-z0-9_]+)@(([a-z0-9]|[a-z0-9]+\.[a-z0-9]+)+\.([a-z]{2,4}))/i";
+                if (empty ($user)) {
+                    $userErr = "* Chưa điền Username";
+                }elseif (is_array($checkuser)) {
+                    $user = $checkuser;
+                    $userErr = "* Username đã tồn tại";
+                }
+                if (empty ($pass)) {
+                    $passErr = "* Chưa điền Password";
+                }
+                if (empty ($email)) {
+                    $emailErr = "* Chưa điền Email";
+                }elseif (!preg_match($regex, $email)) {
+                    $emailErr = "Vui lòng nhập địa chỉ email hợp lệ";
+                }elseif (is_array($checkemail)) {
+                    $email = $checkemail;
+                    $emailErr = "* Email đã tồn tại";
+                }
+                if (empty ($userErr) && empty ($emailErr) && empty ($passErr)) {
+                    insert_taikhoan($email, $user, $pass);
+                    header('Location: index.php?act=dangnhap');
+                }
             }
             include "Modern-Login-master/Modern-Login-master/dangky.php";
             break;
@@ -69,12 +91,19 @@ if (isset ($_GET['act']) && ($_GET['act'] != "")) {
                 if (is_array($checkuser)) {
                     $_SESSION['user'] = $checkuser;
                     header('Location: index.php');
+                } elseif (empty ($user)) {
+                    $userErr = "* Chưa điền Username";
                 } else {
                     $thongbao = "Tài khoản hoặc mật khẩu không đúng. Vui lòng kiểm tra hoặc đăng ký!";
                 }
+                if (empty ($pass)) {
+                    $passErr = "* Chưa điền Password";
+                }
             }
-
             include "Modern-Login-master/Modern-Login-master/dangnhap.php";
+            break;
+        case 'user':
+            include "view/taikhoan/user.php";
             break;
         case 'edit_taikhoan':
             if (isset ($_POST['capnhat']) && ($_POST['capnhat'])) {
@@ -84,7 +113,46 @@ if (isset ($_GET['act']) && ($_GET['act'] != "")) {
                 $address = $_POST['address'];
                 $tel = $_POST['tel'];
                 $id = $_POST['id'];
-
+                /*
+                $checkuser = checkuser($user, $pass);
+                $checkemail = checkemail($email);
+                $checkaddress = checkaddress($address);
+                $checktel = checktel($tel);
+                $regex = "/([a-z0-9_]+|[a-z0-9_]+\.[a-z0-9_]+)@(([a-z0-9]|[a-z0-9]+\.[a-z0-9]+)+\.([a-z]{2,4}))/i";
+                if (empty ($user)) {
+                    $userErr = "* Chưa điền Username";
+                }elseif (is_array($checkuser)) {
+                    $user = $checkuser;
+                    $userErr = "* Username đã tồn tại";
+                }
+                if (empty ($pass)) {
+                    $passErr = "* Chưa điền Password";
+                }
+                if (empty ($email)) {
+                    $emailErr = "* Chưa điền Email";
+                }elseif (!preg_match($regex, $email)) {
+                    $emailErr = "Vui lòng nhập địa chỉ email hợp lệ";
+                }elseif (is_array($checkemail)) {
+                    $email = $checkemail;
+                    $emailErr = "* Email đã tồn tại";
+                }
+                if (empty ($address)) {
+                    $addressErr = "* Chưa điền Address";
+                }elseif (is_array($checkaddress)) {
+                    $address = $checkaddress;
+                    $addressErr = "* Address đã tồn tại";
+                }
+                if (empty ($tel)) {
+                    $telErr = "* Chưa điền Tel";
+                }elseif (is_array($checktel)) {
+                    $tel = $checktel;
+                    $telErr = "* Tel đã tồn tại";
+                }
+                if (empty ($userErr) && empty ($emailErr) && empty ($passErr)) {
+                   
+                    header('Location: index.php?act=dangnhap');
+                }
+                */
                 update_taikhoan($id, $user, $pass, $email, $address, $tel);
                 $_SESSION['user'] = checkuser($user, $pass);
                 header('Location: index.php?act=edit_taikhoan');
@@ -153,6 +221,15 @@ if (isset ($_GET['act']) && ($_GET['act'] != "")) {
             session_unset();
             header('Location: index.php');
             break;
+        case 'gioithieu':
+            include "view/gioithieu.php";
+            break;
+        case 'lienhe':
+            include "view/lienhe.php";
+            break;
+        case 'tintuc':
+            include "view/tintuc.php";
+            break;
 
 
     }
@@ -162,4 +239,3 @@ if (isset ($_GET['act']) && ($_GET['act'] != "")) {
 
 include "view/footer.php";
 ob_end_flush();
-?>
