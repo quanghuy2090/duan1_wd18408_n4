@@ -40,11 +40,17 @@
                     <?php
                         } else {
                             ?>
+<<<<<<< HEAD
                     <div class="row">
                         <div class="text-center">
                             <a href="index.php?act=dangnhap" class="btn btn-info mt-2">Đăng nhập</a>
                             <a href="index.php?act=dangky" class="btn btn-info mt-2">Đăng ký</a>
                         </div>
+=======
+                    <div class="text-center">
+                        <a href="index.php?act=dangnhap" class="btn btn-info mt-2">Đăng nhập</a>
+                        <a href="index.php?act=dangky" class="btn btn-info mt-2">Đăng ký</a>
+>>>>>>> 0ca146f281f43643665a2eb0401f4a614b195d1a
                     </div>
                     </form>
                 <?php } ?>

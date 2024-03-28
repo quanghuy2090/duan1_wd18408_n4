@@ -56,17 +56,27 @@ function load_sanpham_cungloai($id, $iddm){
     $result = pdo_query($sql);
     return $result;
 }
-    function loadone_sanpham_sp($id){
-        $sql= "SELECT * FROM sanpham WHERE id=".$id;
-        $sp=pdo_query_one($sql);
-        return $sp;
+function loadone_sanpham_sp($id){
+    $sql= "SELECT * FROM sanpham WHERE id=".$id;
+    $sp=pdo_query_one($sql);
+    return $sp;
+}
+function update_sanpham($id,$iddm,$tensp,$giasp,$mota,$hinh){
+    if($hinh!="")
+        $sql = "UPDATE sanpham SET iddm='".$iddm."', name='".$tensp."', price='".$giasp."', mota='".$mota."', img='".$hinh."' WHERE id=".$id;
+    else
+        $sql = "UPDATE sanpham SET iddm='".$iddm."', name='".$tensp."', price='".$giasp."', mota='".$mota."' WHERE id=".$id;
+    pdo_execute($sql);
+    
+}
+function load_ten_dm($iddm){
+    if($iddm>0){
+        $sql = "select * from danhmuc where id=".$iddm;
+        $dm=pdb_query_one($sql);
+        extract($dm);
+        return $name;
+    }else{
+        return "";
     }
-    function update_sanpham($id,$iddm,$tensp,$giasp,$mota,$hinh){
-        if($hinh!="")
-            $sql = "UPDATE sanpham SET iddm='".$iddm."', name='".$tensp."', price='".$giasp."', mota='".$mota."', img='".$hinh."' WHERE id=".$id;
-        else
-            $sql = "UPDATE sanpham SET iddm='".$iddm."', name='".$tensp."', price='".$giasp."', mota='".$mota."' WHERE id=".$id;
-        pdo_execute($sql);
-        
-    }
+}
 ?>

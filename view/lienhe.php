@@ -57,7 +57,7 @@
         <div class="g-recaptcha" data-sitekey="your-recaptcha-sitekey">
             <!-- Your reCAPTCHA HTML code here -->
         </div>
-        Bạn hãy check vào check box (ô chọn) để xác thực
+        <p class="check">Bạn hãy check vào check box (ô chọn) để xác thực</p>
     </div>
     <button type="submit" class="btn btn-danger">Gửi liên hệ</button>
 </form>
