@@ -10,7 +10,7 @@
             <div class="row">
                 <h2 class="box_title text-center">TÀI KHOẢN</h2>
                 <div class="col-1"></div>
-                <div class="col-3 text-start">
+                <div class="col-10 text-start">
                     <div class="box_content form_account ">
                         <?php
                         if (isset ($_SESSION['user'])) {
@@ -40,9 +40,11 @@
                     <?php
                         } else {
                             ?>
-                    <div class="text-center">
-                        <a href="index.php?act=dangnhap" class="btn btn-info mt-2">Đăng nhập</a>
-                        <a href="index.php?act=ddangky" class="btn btn-info mt-2">Đăng ký</a>
+                    <div class="row">
+                        <div class="text-center">
+                            <a href="index.php?act=dangnhap" class="btn btn-info mt-2">Đăng nhập</a>
+                            <a href="index.php?act=dangky" class="btn btn-info mt-2">Đăng ký</a>
+                        </div>
                     </div>
                     </form>
                 <?php } ?>

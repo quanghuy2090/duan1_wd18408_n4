@@ -7,6 +7,22 @@ function delete_sanpham($id){
     $sql = "DELETE FROM sanpham WHERE id=".$id;
     pdo_execute($sql);
 }
+function updatesoluong($vitri){
+    for ($i=0; $i < sizeof($_SESSION['mycart']); $i++) { 
+       if($i==$vitri){
+        $_SESSION['mycart'][$i]['4']+=1;
+       }
+    }
+}
+function checktrungsp($id){
+    $vitri=-1;
+    for ($i=0; $i < sizeof($_SESSION['mycart']); $i++) { 
+        if($_SESSION['mycart'][$i]['0']==$id){
+            $vitri=$i;
+        }
+    }
+return $vitri;
+}
 function loadall_sanpham_home(){
     $sql="select * from sanpham where 1 order by id desc limit 0,9";
     $listsanpham=pdo_query($sql);

@@ -61,7 +61,7 @@ if (isset ($_GET['act']) && ($_GET['act'] != "")) {
                 $regex = "/([a-z0-9_]+|[a-z0-9_]+\.[a-z0-9_]+)@(([a-z0-9]|[a-z0-9]+\.[a-z0-9]+)+\.([a-z]{2,4}))/i";
                 if (empty ($user)) {
                     $userErr = "* Chưa điền Username";
-                }elseif (is_array($checkuser)) {
+                } elseif (is_array($checkuser)) {
                     $user = $checkuser;
                     $userErr = "* Username đã tồn tại";
                 }
@@ -70,9 +70,9 @@ if (isset ($_GET['act']) && ($_GET['act'] != "")) {
                 }
                 if (empty ($email)) {
                     $emailErr = "* Chưa điền Email";
-                }elseif (!preg_match($regex, $email)) {
+                } elseif (!preg_match($regex, $email)) {
                     $emailErr = "Vui lòng nhập địa chỉ email hợp lệ";
-                }elseif (is_array($checkemail)) {
+                } elseif (is_array($checkemail)) {
                     $email = $checkemail;
                     $emailErr = "* Email đã tồn tại";
                 }
@@ -165,10 +165,19 @@ if (isset ($_GET['act']) && ($_GET['act'] != "")) {
                 $name = $_POST['name'];
                 $img = $_POST['img'];
                 $price = $_POST['price'];
-                $soluong = 1;
+                if (isset ($_POST['soluong']) && isset ($_POST['soluong']) > 0) {
+                    $soluong = $_POST['soluong'];
+                } else {
+                    $soluong = 1;
+                }
                 $thanhtien = $soluong * $price;
-                $spadd = [$id, $name, $img, $price, $soluong, $thanhtien];
-                array_push($_SESSION['mycart'], $spadd);
+                if (checktrungsp($id) >= 0) {
+                    $vitritrungsp=checktrungsp($id);
+                    updatesoluong(checktrungsp($id));
+                } else {
+                    $spadd = [$id, $name, $img, $price, $soluong, $thanhtien];
+                    array_push($_SESSION['mycart'], $spadd);
+                }
             }
             include "view/cart/viewcart.php";
             break;
