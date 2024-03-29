@@ -4,11 +4,11 @@
         color: #495057;
     }
 </style>
- <div class="boxright">
+<!-- <div class="boxright">
     <div class="mb">
         <div class="box_title text-center">TÀI KHOẢN</div>
         <div class="box_content form_account">
-           <!-- <?php
+            <?php
             if (isset($_SESSION['user'])) {
                 extract($_SESSION['user']);
                 ?>
@@ -32,7 +32,6 @@
                 <?php
             } else {
                 ?>
-                -->
             <div class="text-center">
                 <a href="index.php?act=dangnhap" class="btn btn-info mt-2">Đăng nhập</a>
             </div>
@@ -40,7 +39,7 @@
             
         <?php } ?>
     </div>
-</div> 
+</div> -->
 <div class="text-center">
     <div class="badge text-bg-success text-wrap">DANH MỤC</div> <br>
     <div class="box_content2 product_portfolio"> <br>

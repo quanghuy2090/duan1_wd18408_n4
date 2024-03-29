@@ -57,13 +57,13 @@
         <div id="carouselExample" class="carousel slide">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="./img/banner1.jpg" class="d-block w-100" width="200" height="500" alt="...">
+      <img src="https://dojeannam.com/wp-content/uploads/2021/08/BANNER-WEB.11112.1.jpg" class="d-block w-100" width="200" height="500" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="./img/banner2.jpg" class="d-block w-100" width="200" height="500" alt="...">
+      <img src="https://dongphuchaianh.vn/wp-content/uploads/2021/06/banner-ao-polo-dong-phuc-cong-ty.jpg" class="d-block w-100" width="200" height="500" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="./img/banner3.jpg" class="d-block w-100" width="200" height="500" alt="...">
+      <img src="https://file.hstatic.net/1000369857/collection/1919_730_polo_3da01ded33614497a1884a3b99489661.jpg" class="d-block w-100" width="200" height="500" alt="...">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">

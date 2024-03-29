@@ -1,7 +1,7 @@
 <?php 
-    if(is_array($dm)){
-        extract($dm);
-    }
+if(is_array($dm)){
+    extract($dm);
+}
 ?>
 <header>
     <h1>Cập nhật danh mục mới</h1>

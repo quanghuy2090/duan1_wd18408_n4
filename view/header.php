@@ -34,14 +34,13 @@
     position: relative;
     left: 22vh;
   }
-  
 </style>
 
 <body>
   <nav class="navbar navbar-expand-lg bg-light-subtle border-bottom">
     <div class="container-fluid justify-content-center bg">
       <div class="dropdown">
-      </div>
+  </div>
       <a class="navbar-brand " href="index.php">
         <img src="img/logo11.png" width="90px" height="auto" alt="">
       </a>
@@ -77,14 +76,13 @@
           <a class="nav-link text-dark-emphasis" href="index.php?act=tintuc">Tin tức</a>
         </li>
       </ul>
-      <form class="d-flex" role="search" action="index.php?act=sanpham" method="post">
+      <form class="d-flex " role="search" action="index.php?act=sanpham" method="post">
         <div class="custom-input" id="search-container">
           <input class="form-control me-2 custom-input border border-success-subtle" type="search" placeholder="Search"
             size="25" aria-label="Search" name="keyword">
         </div>
-
         <div class="cus-input">
-          <a href="index.php?act=user" class="text-dark-emphasis"><i class="fa-solid fa-user"></i></a>
+          <a href="index.php?act=dangnhap" class="text-dark-emphasis"><i class="fa-solid fa-user"></i></a>
           <a href="index.php?act=viewcart" class="text-dark-emphasis"> <i class="fa-solid fa-cart-shopping"></i></a>
         </div>
       </form>
