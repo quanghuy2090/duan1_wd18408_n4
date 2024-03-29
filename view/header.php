@@ -79,9 +79,10 @@
       </ul>
       <form class="d-flex" role="search" action="index.php?act=sanpham" method="post">
         <div class="custom-input" id="search-container">
-          <input type="search" placeholder="Search" size="25" aria-label="Search" class="me-1" name="keyword">
-          <input type="submit" name="search" class="" value="Search">
+          <input class="form-control me-2 custom-input border border-success-subtle" type="search" placeholder="Search"
+            size="25" aria-label="Search" name="keyword">
         </div>
+
         <div class="cus-input">
           <a href="index.php?act=user" class="text-dark-emphasis"><i class="fa-solid fa-user"></i></a>
           <a href="index.php?act=viewcart" class="text-dark-emphasis"> <i class="fa-solid fa-cart-shopping"></i></a>
