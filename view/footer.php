@@ -88,8 +88,7 @@
 </footer>
 <!-- Footer -->  </section>
 
-    <script src="main.js">
-  
-    </script>
+    <script src="main.js"></script>
+    <script src="/model/jquery-3.4.1.min.js"></script>
 </body>
 </html>

@@ -33,7 +33,7 @@ function viewcart($del)
                     <td><img src="' . $hinh . '" alt="" height="80px"></td>
                     <td>' . $cart[1] . '</td>
                     <td>' . $cart[3] . ' đ</td>
-                    <td><a onclick=giam(this)>-</a><a>' . $cart[4] . '</a><a onclick=tang(this)>+</a><input type="hidden" value="'.$i.'"></td>
+                    <td><a onclick=giam(this)>-</a><a>' . $cart[4] . '</a><a onclick=tang(this)>+</a><input type="hidden" value="' . $i . '"></td>
                     <td>' . $thanhtien . ' đ</td>
                     ' . $xoasp_td . '
                 </tr>';
@@ -183,19 +183,26 @@ function get_pttt($n)
 ?>
 <Script>
     function tang(x) {
-        var cha = x.parentElement;
-        var soluongcu = cha.children[1];
-        var soluongmoi = parseInt(soluongcu.innerText) + 1;
-        soluongcu.innerText = soluongmoi;
-        var vitri =cha.children[3];
-        
+        let sl = x.previousSibling;
+        let slcu = sl.innerHTML;
+        let slmoi = parseInt(slcu) + 1;
+        sl.innerHTML = slmoi;
+
+        let id = x.nextSibling.innerHTML;
+
+        let parent = x.parentElement;
+        let dongia_obj = parent.previousSibling.previousSibling;
+        let dongia =dongia_obj.innerText;
+        let tt_obj = parent.nextSibling.nextSibling;
+        let tt = parseInt(dongia)*parseInt(slmoi);
+        tt_obj.innerText=tt;
     }
     function giam(x) {
-        var cha = x.parentElement;
-        var soluongcu = cha.children[1];
-        if (soluongcu > 1) {
-            var soluongmoi = parseInt(soluongcu.innerText) - 1;
-            soluongcu.innerText = soluongmoi;
+        let sl = x.nextSibling;
+        let slcu = sl.innerHTML;
+        if (parseInt(slcu) > 1) {
+            var slmoi = parseInt(slcu) - 1;
+            sl.innerHTML = slmoi;
         } else {
             alert('Không thể giảm thêm');
         }
