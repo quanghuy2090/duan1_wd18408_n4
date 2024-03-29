@@ -21,8 +21,8 @@
         $act=$_GET['act'];
         switch($act){
             case "sanpham":
-                if(isset($_POST['kyw']) && $_POST['kyw']>0){
-                    $kyw = $_POST['kyw'];
+                if(isset($_POST['keyword']) && $_POST['keyword']>0){
+                    $kyw = $_POST['keyword'];
                 }else{
                     $kyw="";
                 }
@@ -31,7 +31,7 @@
                 }else{
                     $iddm=0;
                 }
-                $dssp=loadall_sanpham("",$iddm);
+                $dssp=loadall_sanpham($kyw,$iddm);
                 $tendm = load_ten_dm($iddm); 
                 include "view/sanpham.php";
                 break;
