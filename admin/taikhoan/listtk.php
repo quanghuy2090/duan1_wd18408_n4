@@ -24,6 +24,11 @@
                         extract($taikhoan);
                         $suatk = "index.php?act=suatk&id=" . $id;
                         $xoatk = "index.php?act=xoatk&id=" . $id;
+                        if($role==0){
+                            $idrole = "Người dùng";
+                        }else{
+                            $idrole = "Admin";
+                        }
                     ?>
                     <tr>
                         <td><input type="checkbox" name="" id=""></td>
