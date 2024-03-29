@@ -33,7 +33,7 @@ function viewcart($del)
                     <td><img src="' . $hinh . '" alt="" height="80px"></td>
                     <td>' . $cart[1] . '</td>
                     <td>' . $cart[3] . ' đ</td>
-                    <td><a onclick=giam(this)>-</a><a>' . $cart[4] . '</a><a onclick=tang(this)>+</a><input type="hidden" value="' . $i . '"></td>
+                    <td><a onclick=giam(this)>-</a><a>' . $cart[4] . '</a><a onclick=tang(this)>+</a><input type="hidden" value="' . $cart[0] . '"></td>
                     <td>' . $thanhtien . ' đ</td>
                     ' . $xoasp_td . '
                 </tr>';
@@ -188,14 +188,23 @@ function get_pttt($n)
         let slmoi = parseInt(slcu) + 1;
         sl.innerHTML = slmoi;
 
-        let id = x.nextSibling.innerHTML;
+        let id = x.nextSibling.value;
+        $.post("capnhatsoluong.php",
+            {
+                'id': id,
+                'slmoi': slmoi
+            },
+            function (data, textStatus, jqXHR) {
+                $("#cart").html(data);
+            }
+        );
 
-        let parent = x.parentElement;
-        let dongia_obj = parent.previousSibling.previousSibling;
-        let dongia =dongia_obj.innerText;
-        let tt_obj = parent.nextSibling.nextSibling;
-        let tt = parseInt(dongia)*parseInt(slmoi);
-        tt_obj.innerText=tt;
+        // let parent = x.parentElement;
+        // let dongia_obj = parent.previousSibling.previousSibling;
+        // let dongia =dongia_obj.innerText;
+        // let tt_obj = parent.nextSibling.nextSibling;
+        // let tt = parseInt(dongia)*parseInt(slmoi);
+        // tt_obj.innerText=tt;
     }
     function giam(x) {
         let sl = x.nextSibling;

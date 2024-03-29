@@ -179,6 +179,7 @@ if (isset ($_GET['act']) && ($_GET['act'] != "")) {
                     $spadd = [$id, $name, $img, $price, $soluong, $thanhtien];
                     array_push($_SESSION['mycart'], $spadd);
                 }
+                
             }
             include "view/cart/viewcart.php";
             break;
