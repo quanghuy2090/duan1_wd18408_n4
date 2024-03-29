@@ -48,7 +48,7 @@ td {
             
             });
         </script>
-        <div class="" id="binhluan">
+        <div class="row" id="binhluan">
             <form action="">
                 <input type="text" name="msg">
                 <button><input type="submit" class="btn btn-warning" name="guibinhluan">Gửi bình luận</button>
