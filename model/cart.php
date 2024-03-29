@@ -182,44 +182,44 @@ function get_pttt($n)
 
 ?>
 <script>function tang(x) {
-        let sl = x.previousSibling;
-        let slcu = sl.innerHTML;
-        let slmoi = parseInt(slcu) + 1;
+    let sl = x.previousSibling;
+    let slcu = sl.innerHTML;
+    let slmoi = parseInt(slcu) + 1;
+    sl.innerHTML = slmoi;
+
+    // let id = x.nextSibling.value;
+    // $.post("capnhatsoluong.php",
+    //     {
+    //         'id': id,
+    //         'slmoi': slmoi
+    //     },
+    //     function (data, textStatus, jqXHR) {
+    //         $("#cart").html(data);
+    //     }
+    // );
+
+    let parent = x.parentElement;
+    let dongia_obj = parent.previousSibling.previousSibling;
+    let dongia =dongia_obj.innerText;
+    let tt_obj = parent.nextSibling.nextSibling;
+    let tt = parseInt(dongia)*parseInt(slmoi);
+    tt_obj.innerText=tt;
+}
+function giam(x) {
+    let sl = x.nextSibling;
+    let slcu = sl.innerHTML;
+    if (parseInt(slcu) > 1) {
+        var slmoi = parseInt(slcu) - 1;
         sl.innerHTML = slmoi;
-
-        // let id = x.nextSibling.value;
-        // $.post("capnhatsoluong.php",
-        //     {
-        //         'id': id,
-        //         'slmoi': slmoi
-        //     },
-        //     function (data, textStatus, jqXHR) {
-        //         $("#cart").html(data);
-        //     }
-        // );
-
-        let parent = x.parentElement;
-        let dongia_obj = parent.previousSibling.previousSibling;
-        let dongia = dongia_obj.innerText;
-        let tt_obj = parent.nextSibling.nextSibling;
-        let tt = parseInt(dongia) * parseInt(slmoi);
-        tt_obj.innerText = tt;
+    } else {
+        alert('Không thể giảm thêm');
     }
-    function giam(x) {
-        let sl = x.nextSibling;
-        let slcu = sl.innerHTML;
-        if (parseInt(slcu) > 1) {
-            var slmoi = parseInt(slcu) - 1;
-            sl.innerHTML = slmoi;
-        } else {
-            alert('Không thể giảm thêm');
-        }
-        let parent = x.parentElement;
-        let dongia_obj = parent.previousSibling.previousSibling;
-        let dongia = dongia_obj.innerText;
-        let tt_obj = parent.nextSibling.nextSibling;
-        let tt = parseInt(dongia) * parseInt(slmoi);
-        tt_obj.innerText = tt;
+    let parent = x.parentElement;
+    let dongia_obj = parent.previousSibling.previousSibling;
+    let dongia =dongia_obj.innerText;
+    let tt_obj = parent.nextSibling.nextSibling;
+    let tt = parseInt(dongia)*parseInt(slmoi);
+    tt_obj.innerText=tt;
 
-    }
+}
 </script>
