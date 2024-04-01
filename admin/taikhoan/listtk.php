@@ -24,6 +24,11 @@
                         extract($taikhoan);
                         $suatk = "index.php?act=suatk&id=" . $id;
                         $xoatk = "index.php?act=xoatk&id=" . $id;
+                        if($role==0){
+                            $idrole = "Người dùng";
+                        }else{
+                            $idrole = "Admin";
+                        }
                     ?>
                     <tr>
                         <td><input type="checkbox" name="" id=""></td>
@@ -33,7 +38,7 @@
                         <td><?= $email ?></td>
                         <td><?= $address ?></td>
                         <td><?= $tel ?></td>
-                        <td><?= $idrole ?></td>
+                        <td><?= $role ?></td>
                         <td>
                             <a href="<?= $xoatk ?>"><input type="button" value="Xóa"></a>
                         </td>

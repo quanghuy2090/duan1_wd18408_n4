@@ -80,4 +80,14 @@ function update_sanpham($id, $iddm, $tensp, $giasp, $mota, $hinh)
     pdo_execute($sql);
 
 }
-
+function load_ten_dm($iddm)
+{
+    if ($iddm > 0) {
+        $sql = "select * from danhmuc where id=" . $iddm;
+        $dm = pdo_query_one($sql);
+        extract($dm);
+        return $name;
+    } else {
+        return "";
+    }
+}

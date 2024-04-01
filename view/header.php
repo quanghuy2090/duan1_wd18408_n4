@@ -82,7 +82,7 @@
             size="25" aria-label="Search" name="keyword">
         </div>
         <div class="cus-input">
-          <a href="index.php?act=dangnhap" class="text-dark-emphasis"><i class="fa-solid fa-user"></i></a>
+          <a href="index.php?act=user" class="text-dark-emphasis"><i class="fa-solid fa-user"></i></a>
           <a href="index.php?act=viewcart" class="text-dark-emphasis"> <i class="fa-solid fa-cart-shopping"></i></a>
         </div>
       </form>

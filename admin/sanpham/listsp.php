@@ -96,7 +96,7 @@
         <div class="table-actions">
             <button onclick="chonTatCa()">Chọn tất cả</button>
             <button onclick="xoaTatCa()">Xóa tất cả</button>
-            <a href="index.php?act=addsp"><button>Thêm sản phẩm</button></a>
+            <a href="index.php?act=addsp"><input type="button" value="Thêm sản phẩm"></a>
         </div>
 
     </form>

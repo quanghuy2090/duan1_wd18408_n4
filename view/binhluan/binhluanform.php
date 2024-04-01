@@ -37,7 +37,8 @@
                             extract($bl);
                             echo '<tr><td> '.$noidung.'</td>';
                             echo '<td>'.$iduser.'</td>';
-                            echo '<td>'.$ngaybinhluan.'</td></tr>';        
+                            echo '<td>'.$ngaybinhluan.'</td></tr>';
+                                    
                         }
                     ?>
                 </table>
@@ -58,11 +59,13 @@
                     <?php
                         foreach ($dsbl as $bl){
                             extract($bl);
-                            echo '<div><strong>'.$iduser.'</strong></div>';
+                            echo '<div><strong>'.$user.'</strong></div>';
                             echo '<div><em>'.$ngaybinhluan.'</em></div>';
                             echo '<div>'.$noidung.'</div>';  
                             echo '<i class="fa-solid fa-thumbs-up fa-lg" id="thumbs-up"></i> <span id="like-count">0</span>';
                             echo  '<hr>';
+
+
                         }
                     ?>
 

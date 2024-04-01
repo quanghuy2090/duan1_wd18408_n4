@@ -181,45 +181,55 @@ function get_pttt($n)
 }
 
 ?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>function tang(x) {
-    let sl = x.previousSibling;
-    let slcu = sl.innerHTML;
-    let slmoi = parseInt(slcu) + 1;
-    sl.innerHTML = slmoi;
+        let sl = x.previousSibling;
+        let slcu = sl.innerHTML;
+        let slmoi = parseInt(slcu) + 1;
+        // sl.innerHTML = slmoi;
 
-    // let id = x.nextSibling.value;
-    // $.post("capnhatsoluong.php",
-    //     {
-    //         'id': id,
-    //         'slmoi': slmoi
-    //     },
-    //     function (data, textStatus, jqXHR) {
-    //         $("#cart").html(data);
-    //     }
-    // );
+        let id = x.nextSibling.value;
+        $.post("capnhatsoluong.php",
+            {
+                'id': id,
+                'slmoi': slmoi
+            },
+            function (data, textStatus, jqXHR) {
+                $("#cart").html(data);
+            }
+        );
 
-    let parent = x.parentElement;
-    let dongia_obj = parent.previousSibling.previousSibling;
-    let dongia =dongia_obj.innerText;
-    let tt_obj = parent.nextSibling.nextSibling;
-    let tt = parseInt(dongia)*parseInt(slmoi);
-    tt_obj.innerText=tt;
-}
-function giam(x) {
-    let sl = x.nextSibling;
-    let slcu = sl.innerHTML;
-    if (parseInt(slcu) > 1) {
-        var slmoi = parseInt(slcu) - 1;
-        sl.innerHTML = slmoi;
-    } else {
-        alert('Không thể giảm thêm');
+        // let parent = x.parentElement;
+        // let dongia_obj = parent.previousSibling.previousSibling;
+        // let dongia =dongia_obj.innerText;
+        // let tt_obj = parent.nextSibling.nextSibling;
+        // let tt = parseInt(dongia)*parseInt(slmoi);
+        // tt_obj.innerText=tt;
     }
-    let parent = x.parentElement;
-    let dongia_obj = parent.previousSibling.previousSibling;
-    let dongia =dongia_obj.innerText;
-    let tt_obj = parent.nextSibling.nextSibling;
-    let tt = parseInt(dongia)*parseInt(slmoi);
-    tt_obj.innerText=tt;
+    function giam(x) {
+        let sl = x.nextSibling;
+        let slcu = sl.innerHTML;
+        if (parseInt(slcu) > 1) {
+            var slmoi = parseInt(slcu) - 1;
+            let id = x.nextSibling.nextSibling.nextSibling.value;
+            $.post("capnhatsoluong.php",
+                {
+                    'id': id,
+                    'slmoi': slmoi
+                },
+                function (data, textStatus, jqXHR) {
+                    $("#cart").html(data);
+                }
+            );
+        } else {
+            alert('Không thể giảm thêm');
+        }
+        // let parent = x.parentElement;
+        // let dongia_obj = parent.previousSibling.previousSibling;
+        // let dongia =dongia_obj.innerText;
+        // let tt_obj = parent.nextSibling.nextSibling;
+        // let tt = parseInt(dongia)*parseInt(slmoi);
+        // tt_obj.innerText=tt;
 
-}
+    }
 </script>
