@@ -2,6 +2,16 @@
     td {
         padding: 0 20px;
     }
+
+    .size-button {
+        padding: 10px;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+
+    .selected {
+        background-color: yellow;
+    }
 </style>
 <main class="container ">
     <div class="text-center">
@@ -26,14 +36,19 @@
         echo "<div class='col-6'>";
         echo "<h2 class='fw-bold'> $name</h2>";
         echo " <h4 class='text-danger'>$price đ</h4>";
-        echo "<p class='fw-semibold'>$mota</p>";
+        echo ' <strong> Size :</strong> <span id="selected-size"></span>';
+        echo ' <span class="size-button" onclick="setSize("S")">S</span>
+                    <span class="size-button" onclick="setSize("M")">M</span>
+                    <span class="size-button" onclick="setSize("L")">L</span>';
         echo '<div class="m-2"><button class="btn" onclick=giam(this)>-</button><a>' . $soluong .
             '</a><button class="btn" onclick=tang(this)>+</button></div>';
+        echo "<p class='fw-semibold'>$mota</p>";
         echo '<form action="index.php?act=addtocart" method="post">
                             <input type="hidden" name="id" value="' . $id . '">
                             <input type="hidden" name="name" value="' . $name . '">
                             <input type="hidden" name="img" value="' . $img . '">
-                            <input type="hidden" name="price" value="' . $price . '">                          
+                            <input type="hidden" name="price" value="' . $price . '">
+
                             <input type="submit" name="addtocart" class="btn btn-primary" value="Thêm giỏ hàng">
                         </form>';
         echo "</div>";
@@ -74,6 +89,22 @@
     <?php
     include "view/boxright.php";
     ?>
-    <script src="main.js"></script>
-    <script src="/model/jquery-3.4.1.min.js"></script>
+
 </main>
+<script>
+    var selectedSize = '';
+
+    function setSize(size) {
+        if (selectedSize !== '') {
+            var prevSizeElement = document.getElementById('size-' + selectedSize);
+            prevSizeElement.classList.remove('selected');
+        }
+
+        selectedSize = size;
+        document.getElementById('selected-size').textContent = size;
+
+        var currentSizeElement = document.getElementById('size-' + selectedSize);
+        currentSizeElement.classList.add('selected');
+    }
+
+</script>

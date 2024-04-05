@@ -6,9 +6,9 @@
 </style>
 <main>
     <div class="boxright">
-        <div class="mb">
-            <div class="row">
-                <h2 class="box_title text-center">TÀI KHOẢN</h2>
+        <div class="mb"><br>
+            <div class="row"> 
+                <h2 class=" text-center">TÀI KHOẢN</h2>
                 <div class="col-1"></div>
                 <div class="col-10 text-start">
                     <div class="box_content form_account ">
@@ -20,6 +20,7 @@
                                 <?= $user ?>
                             </h4><br>
                             <div class="container">
+                                
                                 <li class="form_li">
                                     <a href="index.php?act=mybill">Đơn hàng của tôi</a>
                                 </li>
@@ -51,4 +52,4 @@
             </div>
         </div>
     </div>
-</main>
+</main> <br>

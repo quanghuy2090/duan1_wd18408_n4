@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 24, 2024 lúc 08:38 AM
+-- Thời gian đã tạo: Th3 29, 2024 lúc 01:56 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -84,7 +84,7 @@ INSERT INTO `bill` (`id`, `iduser`, `bill_user`, `bill_address`, `bill_email`, `
 (63, 1, 'Admin', 'Hà Nội', 'admin@gmail.com', '0987654321', 0, '12:33:45pm 28/02/2024', 140000, 3, '', '', ''),
 (64, 2, 'Hoàng Long', 'Hà Nội', 'longhh7@fpt.edu.vn', '0978654312', 0, '12:35:32pm 28/02/2024', 300000, 3, '', '', ''),
 (65, 1, 'Admin', 'Hà Nội', 'admin@gmail.com', '0987654321', 0, '02:40:09am 29/02/2024', 417000, 0, '', '', ''),
-(66, 1, 'Admin', 'Hà Nội', 'admin@gmail.com', '0987654321', 0, '07:38:22am 29/02/2024', 162000, 2, '', '', '');
+(66, 1, 'Admin', 'Hà Nội', 'admin@gmail.com', '0987654321', 0, '07:38:22am 29/02/2024', 162000, 4, '', '', '');
 
 -- --------------------------------------------------------
 
@@ -105,10 +105,8 @@ CREATE TABLE `binhluan` (
 --
 
 INSERT INTO `binhluan` (`id`, `noidung`, `iduser`, `idpro`, `ngaybinhluan`) VALUES
-(1, 'Sản phẩm rất đang trải nghiệm', 2, 1, '2023-09-22'),
-(2, 'Sản phẩm rất tốt', 3, 1, '2023-09-22'),
-(15, 'chất lượng tốt', 1, 7, '0000-00-00'),
-(16, 'ok', 1, 7, '0000-00-00'),
+(15, 'chất lượng tốt', 1, 7, '2024-03-01'),
+(16, 'ok', 1, 7, '2024-03-05'),
 (17, 'ok', 1, 6, '2024-03-18'),
 (18, 'Đẹp nhưng đắt nên không mua', 1, 15, '2024-03-06');
 
@@ -221,15 +219,15 @@ CREATE TABLE `sanpham` (
 --
 
 INSERT INTO `sanpham` (`id`, `name`, `price`, `img`, `mota`, `luotxem`, `iddm`) VALUES
-(1, 'Pixi Thông Thái - Bí Mật Của Trái Đất', 17000.00, 'Pixi Thông Thái - Bí Mật Của Trái Đất.jpg', 'CÙNG PIXI THÔNG THÁI KHÁM PHÁ BÍ MẬT CỦA TRÁI ĐẤT!!!\r\n\r\nSiêu lục địa Pangea là gì?\r\n\r\nNúi được hình thành như thế nào?\r\n\r\nDãy núi nào cao nhất thế giới?\r\n\r\nNằm trong series Pixi lừng danh bán hàng chục triệu bản mỗi năm tại Đức, được trẻ em trên khắp thế giới yêu thích, cũng như được các giáo viên khuyên đọc, cuốn sách BÍ MẬT CỦA TRÁI ĐẤT sẽ bật mí cho các bạn nhỏ nhiều sự thật thú vị về hành tinh của chúng ta!\r\n\r\n', 10, 6),
-(2, 'Dkfindout - Những Điều Sách Giáo Khoa Không Dạy Bạn - Rừng', 85000.00, 'Dkfindout - Những Điều Sách Giáo Khoa Không Dạy Bạn - Rừng.jpg', 'Bộ sách khoa học DKfindout! gồm 5 cuốn (Rô bốt, Du hành không gian, Năng lượng, Rừng, Kỹ thuật công nghệ) giới thiệu các kiến thức khoa học thường thức thú vị bằng ngôn ngữ dễ hiểu với các hình ảnh, biểu đồ sinh động trực quan, giúp các bạn nhỏ tiếp thu kiến thức hiệu quả nhất có thể. Các chủ đề được đề cập vô cùng mới mẻ như du hành vũ trụ, sử dụng rô bốt trong sản xuất vật phẩm hay chăm sóc con người, v…v… Đây đều là những chủ đề tiến bộ mà các nhà khoa học quan tâm hàng đầu trong tương lai gần.\r\n\r\nQua bộ sách này, các em hiểu hơn về ứng dụng thực tiễn của những kiến thức khoa học mình được học ở trường, giúp khơi gợi niềm hứng thú và yêu thích khoa học, khiến các bộ môn này trở nên gần gũi và thiết thực thay vì chỉ là những kiến thức sách vở khô khan. Đây là bộ sách thực sự hữu ích cho các bạn đọc đam mê khoa học và được gia đình định hướng du học hoặc theo đuổi các ngành khoa học kỹ thuật.\r\n\r\nHơn thế, DKfindout! còn phát triển trang web hoàn toàn miễn phí để các em tự tìm tòi, học hỏi, cũng như ôn lại kiến thức đọc được qua các bài trắc nghiệm ngắn. Trang web sử dụng tiếng Anh, cũng là phương pháp tốt cho các em học và ôn luyện ngoại ngữ.\r\n\r\n', 9, 6),
-(3, 'Starter Toeic Third Edition', 135000.00, 'Starter Toeic Third Edition.jpg', 'First News đã xuất bản 2 bộ sách khá hay về học và luyện thi TOEFL/ TOEIC, được biên soạn công phu bởi đội ngũ các giáo viên và chuyên viên giáo dục - ngôn ngữ Hoa Kỳ.\r\n\r\nĐây chính là hai bộ sách được tổng hợp biên soạn và cập nhật hoá dựa theo những yêu cầu mới của các kỳ thi TOEFL/ TOEIC, đồng thời cũng để đáp ứng nhu cầu học và luyện thi hiện đại.\r\n\r\nMỗi bộ sách được chia thành nhiều cấp độ, từ sơ cấp đến nâng cao, phù hợp với mọi trình độ học viên, thuận lợi cho giáo viên trong việc tổ chức học, ra đề thi và sắp lớp đúng trình độ để việc học tập và kiểm tra của học viên đạt kết quả mong muốn. Các học viên có thể tự kiểm tra và chọn cho mình cấp độ phù hợp với khả năng.\r\n\r\n', 9, 1),
-(5, 'Tự Học Viết Tiếng Nhật Căn Bản Hiragana', 43000.00, 'Tự Học Viết Tiếng Nhật Căn Bản Hiragana.jpg', 'Đây là bộ tài liệu được biên soạn kỹ lưỡng nhằm giúp người học có thể nhanh chóng nắm vững bộ vần 46 ký tự Hiragana và Katakana, hai bộ vần căn bản của tiếng Nhật.\r\n\r\nBộ sách Tự học viết tiếng Nhật căn bản (Hiragana & Katakana) được biên soạn khoa học, hình thức trình bày hấp dẫn, dễ tiếp cận và nhấn mạnh vào vai trò chủ động của học viên nhắm giúp học viên dễ dàng học cách viết đẹp và nhanh 46 mẫu tự trong hai bộ vần Hiragana và Katakana.\r\n\r\nSách có một số ưu điểm như: mẫu tự được trình bày theo ba dạng - viết bằng bút lông truyền thống, viết tay, và chữ in; những chữ mẫu được in mờ để học viên tập viết theo nét; bài tập đa dạng, nhiều giải thích bổ sung, cùng nhiều hình ảnh, ví dụ minh họa.\r\n\r\nLuyện viết là phương pháp hiệu quả nhất để nắm vững tiếng Nhật dạng viết. Đây là công cụ rất hữu hiệu để bắt đầu quá trình nắm vững chữ viết tiếng Nhật.\r\n\r\nVới những ưu điểm trên, Hiragana và Katakana là hai bộ sách luyện viết tiếng Nhật không thể thiếu đối với người bắt đầu học tiếng Nhật ở mọi lứa tuổi.\r\n\r\n', 10, 3),
-(6, '24 Nhân Cách Của Billy Milligan', 196000.00, '24 Nhân Cách Của Billy Milligan.jpg', 'Billy Milligan có thể là bất cứ ai anh ta muốn… ngoại trừ chính bản thân mình\r\n\r\nBị giày vò bởi 24 nhân cách khác nhau cùng tồn tại, không ngừng chiến đấu để giành quyền tối cao đối với cơ thể của mình, Billy Milligan đã không còn có thể kiểm soát được hành động của mình nữa. Cuộc chiến bên trong lên đến đỉnh điểm khi anh ta tỉnh dậy trong tù, bị bắt vì tội bắt cóc và hãm hiếp ba phụ nữ. Trong một phiên tòa mang tính bước ngoặt, Billy được tuyên trắng án với lý do mất trí vì đa nhân cách – quyết định lần đầu tiên có trong lịch sử tòa án của Mỹ và nhân loại.\r\n\r\nTrong tác phẩm, bạn sẽ được lần lượt gặp từng nhân cách trong câu chuyện có thật gây sốc này. Và bạn sẽ không thể rời mắt khỏi tâm trí của chàng trai trẻ bị tra tấn Billy Milligan cũng như thế giới bị chia cắt, đáng sợ của anh ta.\r\n\r\n', 9, 2),
-(7, 'Tiếng Vọng ', 252000.00, 'TIẾNG VỌNG.jpg', 'Tiếng vọng là cuốn tiểu thuyết đồ sộ khai phá lĩnh vực suy lý và tâm lý học của nhà văn nổi tiếng Trung Quốc – Đông Tây. Bắt đầu từ một vụ án mang tên “trọng án Đại Khanh”, nạn nhân là một phụ nữ trẻ được phát hiện trôi nổi trên sông trong trạng thái cơ thể không còn nguyên vẹn, Tiếng vọng dõi theo hành trình phá án gian nan của nữ cảnh sát dày dạn kinh nghiệm Nhiễm Đông Đông. Dù đã phá nhiều vụ án khó nhưng lần này, cái cô cần đưa ra ánh sáng không chỉ là hung thủ – một kẻ từng chịu nhiều tổn thương tinh thần đến mức thành bệnh tâm lý mà còn là các nghi can đã gián tiếp “nhúng tay” vào tội ác nhưng lại có bằng chứng ngoại phạm. Hành trình phá án cũng là hành trình Nhiễm Đông Đông “đào sâu” vào nội tâm của chính mình, lần đầu tiên nhận ra việc ngày ngày phải đối mặt với những nghi phạm, việc phải luôn giữ tâm thế phản biện và hoài nghi đã ảnh hưởng nghiêm trọng thế nào đến đời sống hôn nhân của cô. Cũng là lần đầu tiên cô nhận ra, cuộc hôn nhân từng vô cùng hạnh phúc của mình có nguy cơ tan vỡ bởi “hai nửa” của nó đã không còn hòa hợp: một người theo đuổi chủ nghĩa lý tưởng trong hôn nhân còn một người biết chấp nhận thực tế. “Trọng án Đại Khanh” khép lại nhưng mở ra vấn đề lớn nhất mà ta phải lựa chọn khi trưởng thành: “thỏa hiệp” hay không khi mà cuộc sống này không cho phép con người ta được hoàn toàn sống bằng lý tưởng?\r\n\r\n', 9, 2),
-(8, 'Kẻ Không Thể Giã Từ', 139000.00, 'Kẻ Không Thể Giã Từ.jpg', '\r\nMột vụ án chưa giải quyết xong, một vụ án khác lại đến.\r\n\r\nẨn dưới vẻ uể oải thường trực của đời sống giàu có, là những khuôn mặt người như những con búp bê sứ đã vỡ vụn từ lâu nhưng được chắp vá lại bằng sự hào nhoáng đến chán chường.\r\n\r\nTrong Kẻ không thể giã từ, một lần nữa độc giả cùng Philip Marlowe dấn bước vào vụ án càng lúc càng rắc rối, nơi những bóng ma quá khứ trở về để hoàn tất lời từ biệt.\r\n\r\n“Tôi dịch những gì tôi thích đọc. Tôi đã dịch tất cả các tiểu thuyết của Raymond Chandler. Tôi thích phong cách của anh ấy rất nhiều. Tôi đã đọc The Long Goodbye năm hoặc sáu lần.”', 10, 2),
-(14, 'Thám Tử Lừng Danh Conan - Tập 102', 23000.00, 'conan_bia_tap-102.jpg', 'Jugo Yokomizo tình cờ gặp Chihaya Hagiwara tại bữa tiệc mai mối!\r\n\r\nĐiều gì hiện lên trong tâm trí Chihaya khi cô chăm chú nhìn Wataru Takagi!?\r\n\r\nChí nguyện “hoa anh đào” được tiếp nối qua bao thế hệ...\r\n\r\nVà...\r\n\r\nChẳng hề báo trước, tập truyện này sẽ mở ra những diễn biến đầy bất ngờ.\r\n\r\n', 0, 5),
-(15, 'MASHLE - Tập 11: Mash Burnedead Và Thần Nước', 28000.00, 'mashle_bia_tap-11-1.jpg', 'Trận chiến giữa hai con trai của Innocent Zero: Mash vs. Domina!! Chiếc ghế Thần Nhãn treo lơ lửng trước mắt, pháp thuật nước và “pháp thuật” vật lí va chạm dữ dội!! Domina là kẻ luôn khát khao sự công nhận của cha một cách méo mó. Hắn căm ghét tình bạn và gia đình nên nhăm nhe phá hủy những điều mà Mash luôn trân trọng. Khi “cơn thịnh nộ” đạt đến cao trào, pháp thuật tối thượng bộc lộ!! Đứng trước sức mạnh tương đương thần thánh, Mash sẽ xử trí ra sao…!? Vận mệnh của Thế giới đánh cược vào kì thi Thần Nhãn lần này. Và mọi chuyện bỗng rẽ sang một hướng bất ngờ!!\r\n\r\n', 0, 5);
+(1, 'Bộ thu đông dài tay khóa Micky ', 344444.00, '1e5e9c2e32c0b14b430336d56193d09e.jpg_720x720q80.jpg_.webp', '➬ Chất Liệu: Nỉ bóng<br>\r\n➬ Form chuẩn phù hợp với mọi vóc dáng: Co dãn 4 chiều thể thao, mịn tạo cảm giác vô cùng thoải mái cho người mặc.<br>\r\n➬ Kiểu dáng trẻ trung phù hợp với mọi độ tuổi.<br>\r\n➬ Đủ size cho bạn lựa chọn<br>\r\n➬ Mặc nhà, có thể sử dụng khi dạo phố, chơi thể thao hay đi du lịch.<br>', 10, 6),
+(2, 'Bộ nỉ nam kéo khóa tay trắng ', 222222.00, '7f14c2832fe5616e9376c2fd73aaf49d.jpg_720x720q80.jpg_.webp', '➬ Chất Liệu: Nỉ bóng  Cao Cấp <br>\r\n➬ Form chuẩn phù hợp với mọi vóc dáng: Co dãn 4 chiều thể thao, mịn tạo cảm giác vô cùng thoải mái cho người mặc.<br>\r\n➬ Kiểu dáng trẻ trung phù hợp với mọi độ tuổi.<br>\r\n➬ Đủ size cho bạn lựa chọn<br>\r\n➬ Mặc nhà, có thể sử dụng khi dạo phố,  hay đi du lịch', 9, 6),
+(3, 'Áo phông đen đẹp tuyệt vời', 135000.00, 'asm.webp', 'Đẹp và chắc', 9, 1),
+(5, 'Quần jean nam rách gối vải bò ', 430000.00, 'e555be667e82c7faf367f5697dc1c37c.jpg_720x720q80.jpg_.webp', 'Chất liệu: JEAN cao cấp,bên màu co dãn tốt <br>\r\nThiết kế:quần jean nam rách thể hiện sự bụi,cá tính đầy mạnh mẽ chuẩn men,giúp bạn trông thon gọn và cao hơn khi mặc <br>\r\nDây khóa kéo của mỗi chiếc quần jeans nam cao cấp sẽ có chất liệu là đồng<br>\r\n\r\nQuần jean nam cao cấp có thể kết hợp với áo sơ mi,áo thun,áo khoác ….<br>\r\nMàu sắc:hài hòa,dễ mặc,thích hợp với nhiều dáng người<br>\r\nThiết kế:Quần jean nam rách và quần jean nam trơnQuần jean nam hay quần bò nam được xem là một trong những món đồ thời trang được các chàng trai ưa chuộng vì kiểu dáng đơn giản, dễ mặc phù hợp với tính cách thoải mái, phóng khoáng. Quần jean nam phổ biến để mặc đi chơi, đi làm…', 10, 3),
+(6, 'Áo phông trẻ trung MH3800', 196000.00, 'tải xuống (1).jpeg', 'đẹp và ok', 9, 1),
+(7, 'Áo khoác Pink siêu đẹp phong cách thời trang', 252000.00, 'aokhoani.jpeg', 'Phù hợp mọi lứa tuổi', 9, 2),
+(8, 'Áo Khoác Nam Màu Loang Phong Cách Thời Trang ', 139000.00, 'bd38dd61f420db267d0bbdab6def1a7b.jpg_720x720q80.jpg_.webp', 'ok', 10, 2),
+(14, 'Áo thun nam nữ Cổ Tròn Phối Chữ to TOMMY', 54000.00, 'ao.jpg', 'Chất liệu: Cotton\r\n<br>\r\n\r\nMàu sắc: Đen, Trắng\r\n<br>\r\n\r\nKích cỡ: Sản phẩm nam nữ Unisex size từ 40-65kg\r\n\r\n<br>\r\ntùy chiều cao nha', 0, 1),
+(15, 'ÁO POLO UNISEX ÁO THUN CÓ CỔ PHỐI MÀU ĐEN TRẮNG', 120000.00, 'aop.jpg', 'dẹp va ok\r\n\r\n', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -253,7 +251,7 @@ CREATE TABLE `taikhoan` (
 
 INSERT INTO `taikhoan` (`id`, `user`, `pass`, `email`, `address`, `tel`, `role`) VALUES
 (1, 'Admin', '123456', 'admin@gmail.com', 'Hà Nội', '0987654321', 1),
-(2, 'Hoàng Long', '123456', 'longhh7@fpt.edu.vn', 'Hà Nội', '0978654312', 0),
+(2, 'user', '123456', 'longhh7@fpt.edu.vn', 'Hà Nội', '0978654312', 0),
 (3, 'Thành Trung', '1234565', 'trungnt173@fpt.edu.vn', 'Hà Nội', '0967812345', 0),
 (4, 'abc', '123', 'pphu0936@gmail.com', 'ha noi', '0978650293', 0);
 
@@ -317,7 +315,7 @@ ALTER TABLE `bill`
 -- AUTO_INCREMENT cho bảng `binhluan`
 --
 ALTER TABLE `binhluan`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT cho bảng `cart`
@@ -329,13 +327,13 @@ ALTER TABLE `cart`
 -- AUTO_INCREMENT cho bảng `danhmuc`
 --
 ALTER TABLE `danhmuc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT cho bảng `taikhoan`

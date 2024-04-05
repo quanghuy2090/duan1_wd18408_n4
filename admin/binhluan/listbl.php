@@ -26,8 +26,8 @@
                     <td><input type="checkbox"></td>
                     <td>BL '.$id.'</td>
                     <td>'.$noidung.'</td>
-                    <td>'.$iduser.'</td>
-                    <td>'.$idpro.'</td>
+                    <td>'.$id.'</td>
+                    <td>'.$user.'</td>
                     <td>'.$ngaybinhluan.'</td>
                     <td><a href= "'.$xoabl.'"><input type="button" value="Xóa"onclick="return confirm("Bạn có chắc muốn xóa tài khoản này không?" ></a></td>
                 </tr>';

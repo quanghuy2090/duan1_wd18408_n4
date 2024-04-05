@@ -18,6 +18,20 @@
             color: red;
             text-align: center;
         }
+.cmt {
+    height: 50px;
+  border: 1px solid red;
+  font-size: 16px;
+  /* Thêm các thuộc tính CSS khác nếu cần */
+}
+.col-3 {
+  display: flex;
+  align-items: center;
+}
+
+.col-3 input {
+  margin-right: 10px;
+}
     </style>
 </head>
 <body>
@@ -35,9 +49,11 @@
                     <?php
                         foreach ($dsbl as $bl){
                             extract($bl);
-                            echo '<tr><td> '.$noidung.'</td>';
-                            echo '<td>'.$iduser.'</td>';
-                            echo '<td>'.$ngaybinhluan.'</td></tr>';
+                            echo '<div class="fw-bold">'.$user.'</div>';
+                            echo '<div class="fst-italic">'.$ngaybinhluan.'</div>';
+                            echo ' <div class="fw-normal">'.$noidung.'</div>';
+                            echo '<i class="fa-solid fa-thumbs-up fa-lg" id="thumbs-up"></i> <span id="like-count">0</span>';
+                            echo '<hr>';
                                     
                         }
                     ?>
@@ -46,8 +62,21 @@
             <div class="box_bl">
                 <form action="<?=$_SERVER['PHP_SELF']?>" method="POST">
                     <input type="hidden" name="idpro" value="<?=$idpro?>">            
-                    <input type="text" name="noidung">
-                    <input type="submit" name="guibinhluan" value="Gửi bình luận">
+                    <div class="row">
+                        <div class="col-3">
+                        <input type="text" class="form-control" name="noidung">
+                        <input type="submit" name="guibinhluan" class="btn btn-primary" value="Gửi bình luận">
+                        </div>
+                        <div class="col-3">
+
+                        </div>
+                        <div class="col-3">
+                        
+                        </div>
+                        <div class="col-3">
+
+                        </div>
+                    </div>
                 </form>
             </div>
             <?php

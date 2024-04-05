@@ -1,70 +1,42 @@
 <main class="catalog  mb ">
     <div class="boxleft">
-        <div class="  mb">
-            <div class="container">
-                <div class="box_title text-center">
-                    CẬP NHẬT TÀI KHOẢN
-                </div>
-                <div class="box_content">
-                    <?php
-                    if (isset($_SESSION['user']) && (is_array($_SESSION['user']))) {
-                        extract($_SESSION['user']);
-                    }
-                    ?>
-                    <form action="index.php?act=edit_taikhoan" method="post" class="form-control">
-                        <div class="row justify-content-center">
-                            <div class="col-4">
-                                <label for="">Email:</label>
-                                <input type="email" name="email" value="<?= $email ?>"
-                                    class="form-control ct-input border border-primary-subtle">
-                            </div>
-                        </div>
-                        <div class="row justify-content-center">
-                            <div class="col-4">
-                                <label for="">Username:</label>
-                                <input type="text" name="user" value="<?= $user ?>"
-                                    class="form-control ct-input border border-primary-subtle">
-                            </div>
-                        </div>
-                        <div class="row justify-content-center">
-                            <div class="col-4">
-                                <label for="">Password:</label>
-                                <input type="password" name="pass" value="<?= $pass ?>"
-                                    class="form-control ct-input border border-primary-subtle">
-                            </div>
-                        </div>
-                        <div class="row justify-content-center">
-                            <div class="col-4">
-                                <label for="">Address:</label>
-                                <input type="text" name="address" value="<?= $address ?>"
-                                    class="form-control ct-input border border-primary-subtle">
-                            </div>
-                        </div>
-                        <div class="row justify-content-center">
-                            <div class="col-4">
-                                <label for="">Tel:</label>
-                                <input type="text" name="tel" value="<?= $tel ?>"
-                                    class="form-control ct-input border border-primary-subtle">
-                            </div>
-                        </div>
-                        <input type="hidden" name="id" value="<?= $id ?>">
-                        <div class="text-center mt-2">
-                            <input type="submit" value=" Cập nhật" name="capnhat" class="btn btn-info">
-                            <input type="reset" value="Nhập lại" class="btn btn-info">
-                        </div>
-                    </form>
-                    <h2 class="thongbao">
-                        <?php
-                        if (isset($thongbao) && ($thongbao) != "") {
-                            echo $thongbao;
-                        }
-                        ?>
-                    </h2>
-
-                </div>
+        <div class="  mb"> <br>
+            <div class="text-center text-primary">
+                <h2>CẬP NHẬT TÀI KHOẢN</h2>
             </div>
-
+            <div class="box_content">
+                <?php
+                    if(isset($_SESSION['user'])&&(is_array($_SESSION['user']))){
+                        extract($_SESSION['user']);
+                    }    
+                ?>
+                <form action="index.php?act=edit_taikhoan" method="post">
+                    <label for="" class="form-label">Email:</label>
+                    <input type="email" class="form-control" name="email" value="<?=$email?>">
+                    <label for=""class="form-label">Username:</label>
+                    <input type="text" class="form-control" name="user" value="<?=$user?>">
+                    <label for=""class="form-label">Password:</label>
+                    <input type="password" class="form-control" name="pass" value="<?=$pass?>"><br>
+                    <label for=""class="form-label">Address:</label>
+                    <input type="text" class="form-control" name="address" value="<?=$address?>"><br>
+                    <label for=""class="form-label">Tel:</label>
+                    <input type="text" class="form-control" name="tel" value="<?=$tel?>"><br>
+                    <input type="hidden" name="id" value="<?=$id?>">
+                    <input type="submit" class="btn btn-info" value=" Cập nhật" name="capnhat">
+                    <input type="reset" class="btn btn-primary" value="Nhập lại">
+                </form>
+                <h2 class="thongbao">
+                <?php
+                    if(isset($thongbao)&&($thongbao)!=""){
+                        echo $thongbao;
+                    }
+                ?>
+                </h2>
+                
+            </div>
         </div>
+
+        
     </div>
 
 

@@ -20,8 +20,8 @@ function viewcart($del)
                 ' . $xoasp_th . '
             </tr>';
     foreach ($_SESSION['mycart'] as $cart) {
-        $hinh = $img_path . $cart[2];
-        $thanhtien = $cart[3] * $cart[4];
+        $hinh = $img_path . $cart["img"];
+        $thanhtien = $cart["price"] * $cart["soluong"];
         $tong += $thanhtien;
         if ($del == 1) {
             $xoasp_td = '<td><a href="index.php?act=delcart&idcart=' . $i . '"><input type="button" value="Xóa"></a></td>';
@@ -31,9 +31,9 @@ function viewcart($del)
         echo '
                 <tr style="text-align:center">
                     <td><img src="' . $hinh . '" alt="" height="80px"></td>
-                    <td>' . $cart[1] . '</td>
-                    <td>' . $cart[3] . ' đ</td>
-                    <td><a onclick=giam(this)>-</a><a>' . $cart[4] . '</a><a onclick=tang(this)>+</a><input type="hidden" value="' . $cart[0] . '"></td>
+                    <td>' . $cart["name"] . '</td>
+                    <td>' . $cart["price"] . ' đ</td>
+                    <td><a onclick=giam(this)>-</a><a>' . $cart["soluong"] . '</a><a onclick=plus(this)>+</a><input type="hidden" value="' . $cart["id"] . '"></td>
                     <td>' . $thanhtien . ' đ</td>
                     ' . $xoasp_td . '
                 </tr>';
@@ -80,7 +80,7 @@ function tongdonhang()
 {
     $tong = 0;
     foreach ($_SESSION['mycart'] as $cart) {
-        $thanhtien = $cart[3] * $cart[4];
+        $thanhtien = $cart['price'] * $cart['soluong'];
         $tong += $thanhtien;
     }
     return $tong;
@@ -181,13 +181,13 @@ function get_pttt($n)
 }
 
 ?>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script>function tang(x) {
+<script>
+    function plus(x) {
         let sl = x.previousSibling;
         let slcu = sl.innerHTML;
         let slmoi = parseInt(slcu) + 1;
         // sl.innerHTML = slmoi;
-
+        // alert(slmoi);
         let id = x.nextSibling.value;
         $.post("capnhatsoluong.php",
             {
@@ -223,6 +223,7 @@ function get_pttt($n)
             );
         } else {
             alert('Không thể giảm thêm');
+            slmoi = 1;
         }
         // let parent = x.parentElement;
         // let dongia_obj = parent.previousSibling.previousSibling;

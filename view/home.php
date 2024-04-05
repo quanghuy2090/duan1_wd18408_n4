@@ -57,10 +57,10 @@
         <div id="carouselExample" class="carousel slide">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="https://dojeannam.com/wp-content/uploads/2021/08/BANNER-WEB.11112.1.jpg" class="d-block w-100" width="200" height="500" alt="...">
+      <img src="https://dongphuchaianh.vn/wp-content/uploads/2021/06/banner-ao-polo-dong-phuc-cong-ty.jpg" class="d-block w-100" width="200" height="500" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="https://dongphuchaianh.vn/wp-content/uploads/2021/06/banner-ao-polo-dong-phuc-cong-ty.jpg" class="d-block w-100" width="200" height="500" alt="...">
+      <img src="https://dojeannam.com/wp-content/uploads/2021/08/BANNER-WEB.11112.1.jpg" class="d-block w-100" width="200" height="500" alt="...">
     </div>
     <div class="carousel-item">
       <img src="https://file.hstatic.net/1000369857/collection/1919_730_polo_3da01ded33614497a1884a3b99489661.jpg" class="d-block w-100" width="200" height="500" alt="...">
@@ -92,88 +92,94 @@
         </div>
     </div>
 </div>
-        <br>
-            <h2 class="text-center">Tất cả sản phẩm</h2>
-            <br>
-            <div class="items container">
-            <select id="filterSelect" aria-label="Disabled select example" onchange="redirectToLink()">
-              <option selected value="0">Bộ lọc....</option>
-              <option value="1">Áo phông</option>
-              <option value="2">Áo khoác</option>
-              <option value="3">Quần jeans</option>
-              <option value="4">Quần short</option>
-              <option value="5">Combo</option>
-            </select> 
-            <br> <br>
+<br>
+<h2 class="text-center">Tất cả sản phẩm</h2>
+<br>
+<div class="items container">
+  <select id="filterSelect" aria-label="Disabled select example" onchange="filterByPrice()">
+    <option selected value="">Giá......</option>
+    <option value="asc">Từ thấp đến cao</option>
+    <option value="desc">Từ cao đến thấp</option>
+  </select>
+  <br> <br>
 
-<?php
-$i = 0;
-$columns = 4; // Số cột mong muốn
+  <?php
+  $i = 0;
+  $columns = 4; // Số cột mong muốn
 
-foreach ($spnew as $sp) {
+  // Lấy giá trị sắp xếp từ URL nếu có
+  $sort = isset($_GET['sort']) ? $_GET['sort'] : '';
+
+  // Sắp xếp mảng sản phẩm theo giá
+  if ($sort === 'asc') {
+    usort($spnew, function ($a, $b) {
+      return $a['price'] - $b['price'];
+    });
+  } elseif ($sort === 'desc') {
+    usort($spnew, function ($a, $b) {
+      return $b['price'] - $a['price'];
+    });
+  }
+
+  foreach ($spnew as $sp) {
     extract($sp);
-    $hinh = $img_path.$img;
+    $hinh = $img_path . $img;
     if ($i % $columns == 0) {
-        echo '<div class="row">';
+      echo '<div class="row">';
     }
 
     if (($i == 2) || ($i == 5) || ($i == 8)) {
-        $mr = "";
+      $mr = "";
     } else {
-        $mr = "mr";
+      $mr = "mr";
     }
 
-    $linksp = "index.php?act=sanphamct&idsp=".$id;
+    $linksp = "index.php?act=sanphamct&idsp=" . $id;
 
     echo '                
-    <div class="col-md-' . (12/$columns) . ' ' . $mr . '">
-        <div class="card" style="width: 18rem;">
-            <a class="item_name" href="' . $linksp . '"><img src="' . $hinh . '" class="card-img-top" width="50" height="300" alt=""></a>
-            <div class="card-body">
-                <a class="text-center text-dark-emphasis" href="' . $linksp . '">' . $name . '</a>
-                <p class="text-danger">Giá: ' . $price . ' đ</p>  
-                <form action="index.php?act=addtocart" method="post">
-                    <input type="hidden" name="id" value="' . $id . '">
-                    <input type="hidden" name="name" value="' . $name . '">
-                    <input type="hidden" name="img" value="' . $img . '">
-                    <input type="hidden" name="price" value="' . $price . '">
-                    <div >
-                    <input type="submit" name="addtocart" class="btn btn-primary" value="Thêm giỏ hàng">
-                    <input type="submit" name="addtocart" class="btn btn-danger" value="Mua ngay"> 
-                    </div>
-                </form>    
+    <div class="col-md-' . (12 / $columns) . ' ' . $mr . '">
+      <div class="card" style="width: 18rem;">
+        <a class="item_name" href="' . $linksp . '"><img src="' . $hinh . '" class="card-img-top" width="50" height="300" alt=""></a>
+        <div class="card-body">
+          <a class="text-center text-dark-emphasis" href="' . $linksp . '">' . $name . '</a>
+          <p class="text-danger">Giá: ' . $price . ' đ</p>  
+          <form action="index.php?act=addtocart" method="post">
+            <input type="hidden" name="id" value="' . $id . '">
+            <input type="hidden" name="name" value="' . $name . '">
+            <input type="hidden" name="img" value="' . $img . '">
+            <input type="hidden" name="price" value="' . $price . '">
+            <div >
+              <input type="submit" name="addtocart" class="btn btn-primary" value="Thêm giỏ hàng">
+              <input type="submit" name="addtocart" class="btn btn-danger" value="Mua ngay"> 
             </div>
+          </form>    
         </div>
+      </div>
     </div> ';
 
     $i++;
 
     if ($i % $columns == 0 || $i == count($spnew)) {
-        echo '</div> <br>';
+      echo '</div> <br>';
     }
-}
-
-?> 
+  }
+  ?>
 </div>
+
+<script>
+  function filterByPrice() {
+    var filterSelect = document.getElementById("filterSelect");
+    var selectedOption = filterSelect.options[filterSelect.selectedIndex].value;
+
+    // Thay đổi URL dựa trên lựa chọn được chọn
+    if (selectedOption === "asc") {
+      window.location.href = "index.php?sort=asc";
+    } else if (selectedOption === "desc") {
+      window.location.href = "index.php?sort=desc";
+    }
+  }
+</script>
 
 </main>
 
 
-<script>
-    function redirectToLink() {
-        var selectElement = document.getElementById("filterSelect");
-        var selectedValue = selectElement.value;
-        
-        if (selectedValue === "1") {
-            window.location.href = "index.php?act=sanpham&iddm=1";
-        } else if (selectedValue === "2") {
-            window.location.href = "index.php?act=sanpham&iddm=2";
-        } else if (selectedValue === "3") {
-            window.location.href = "index.php?act=sanpham&iddm=3";
-        } else if (selectedValue === "4") {
-            window.location.href = "index.php?act=sanpham&iddm=5";
-        } else if (selectedValue === "5") {
-            window.location.href = "index.php?act=sanpham&iddm=6";
-        }
-    }
-</script>
