@@ -36,11 +36,20 @@
         <label for="mota">Mô tả sản phẩm:</label><br>
         <textarea name="mota" cols="100" rows="10"><?=$mota?></textarea><br><br>
 
-        <div class="actions"><br>
-        <input type="hidden" name="id" id="" value="<?=$id?>">
-        <input type="submit" name="capnhat" value="Cập nhật"><br><br>
-                <input type="reset" value="Nhập lại"><br><br>
-            <a href="index.php?act=listsp">Danh sách</a>
+        <div class="actions mx-auto p-2" style="width: 350px;">
+            <div class="row justify-content-between">
+                <input type="hidden" name="id" id="" value="<?=$id?>">
+                <div class="col-4">
+                    <input type="submit" name="capnhat" value="Cập nhật"  class="btn btn-primary" style="width: 100px;">
+                </div>
+
+                <div class="col-4">
+                    <input type="reset" value="Nhập lại" style="width: 100px;"  class="btn btn-secondary" style="width: 100px;">
+                </div>
+                <div class="col-4">
+                    <a href="index.php?act=listsp" class="btn" style="width: 100px;">Danh sách</a>
+                </div>
+            </div>
         </div>
 
         </form>

@@ -24,7 +24,7 @@
                 <td>'.$name.'</td>
                 <td><a href="'.$suadm.'">
                 <input type="button" class="col-md-4" value="Sửa"></a>
-                <a href="'. $xoadm.'"><input type="button" class="col-md-4" value="Xóa"></a></td>
+                <a href="'. $xoadm.'" onclick="return confirmDelete()"><input type="button" class="col-md-4" value="Xóa"></a></td>
             </tr>';
                 }
             ?>
@@ -38,3 +38,8 @@
     </section>
     <style>
 </style>
+<script>
+    function confirmDelete() {
+        return confirm("Bạn có chắc chắn muốn xóa mục này?");
+    }
+</script>

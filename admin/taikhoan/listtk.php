@@ -35,7 +35,7 @@
                         <td><?= $tel ?></td>
                         <td><?= $role ?></td>
                         <td>
-                            <a href="<?= $xoatk ?>"><input type="button" value="Xóa"></a>
+                            <a href="<?= $xoatk ?>" onclick="return confirmDelete()"><input type="button" value="Xóa"></a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -47,6 +47,12 @@
         </div>
     </form>
 </section>
+
+<script>
+    function confirmDelete() {
+        return confirm("Bạn có chắc chắn muốn xóa mục này?");
+    }
+</script>
 
 <style>
 

@@ -26,6 +26,7 @@
                     <input type="hidden" name="id" value="<?=$id?>">
                     <input class="btn btn-primary col-md-5" name="capnhat" type="submit" value="CẬP NHẬT">
                 </div>
+                
             </div>
             <?php
             if(isset($thongbao)&&($thongbao!="")) echo $thongbao;           

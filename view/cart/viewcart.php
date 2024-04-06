@@ -24,8 +24,7 @@
                 <a href="index.php?act=bill"><input type="button" class="btn btn-info" value="Thanh Toán"></a>
                 <a href="index.php?act=delcart"><input type="button" class="btn btn-danger" value="Xóa giỏ hàng"></a>
             </div>
+            <br>
         </div>
     </div>
-
-
 </main>

@@ -14,13 +14,16 @@
         // CONTROLLER DANH MỤC
         case 'adddm':
             $thongbao1 = [];
-            // kiểm tra người dùng có click vào nút add hay không 
-            if(isset($_POST['themmoi']) && ($_POST['themmoi'])){
-                $tenloai=$_POST['tenloai']; 
-                insert_danhmuc($tenloai);
-                $thongbao="Thêm thành công";
-                if(isset($thongbao1)){
-                    $thongbao1['tenloai'] = "Vui lòng nhập tên loại.";
+            // Kiểm tra nếu người dùng đã gửi dữ liệu từ form
+            if(isset($_POST['themmoi']) && ($_POST['themmoi'])) {
+                // Kiểm tra nếu 'tenloai' được gửi từ form
+                if(isset($_POST['tenloai']) && !empty($_POST['tenloai'])) {
+                    $tenloai = $_POST['tenloai'];
+                    // Gọi hàm insert_danhmuc để thêm dữ liệu vào cơ sở dữ liệu
+                    insert_danhmuc($tenloai);
+                    $thongbao = "Thêm thành công";
+                } else {
+                    $thongbao1['tenloai'] = "Vui lòng nhập tên danh mục";
                 }
             }
             include "danhmuc/adddm.php";
