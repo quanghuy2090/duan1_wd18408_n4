@@ -218,14 +218,30 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $pttt = $_POST['pttt'];
                 $ngaydathang = date('h:i:sa d/m/Y');
                 $tongdonhang = tongdonhang();
-                $idbill = insert_bill($iduser, $user, $address, $email, $tel, $pttt, $ngaydathang, $tongdonhang);
-                echo $idbill;
-                //insert vao session my cart & $idbill
-                foreach ($_SESSION['mycart'] as $cart) {
-                    insert_cart($_SESSION['user']['id'], $cart['id'], $cart['img'], $cart['name'], $cart['price'], $cart['soluong'], $tongdonhang, $idbill);
+                if (empty($user)) {
+                    $userErr = "* Chưa điền Username";
                 }
-                // xoa session cart
-                $_SESSION['mycart'] = [];
+                if (empty($address)) {
+                    $addressErr = "* Chưa điền địa chỉ";
+                }
+                if (empty($email)) {
+                    $emailErr = "* Chưa điền Email";
+                }
+                if (empty($tel)) {
+                    $telErr = "* Chưa điền số điện thoại";
+                }elseif (mb_strlen($tel)<9 && mb_strlen($tel)>12 ) {
+                    $telErr = "* Số điện thoại quá dài hoặc quá ngắn";
+                }
+                if (empty($userErr) && empty($emailErr) && empty($addressErr) && empty($telErr)) {
+                    $idbill = insert_bill($iduser, $user, $address, $email, $tel, $pttt, $ngaydathang, $tongdonhang);
+                    echo $idbill;
+                    //insert vao session my cart & $idbill
+                    foreach ($_SESSION['mycart'] as $cart) {
+                        insert_cart($iduser, $cart['id'], $cart['img'], $cart['name'], $cart['price'], $cart['soluong'], $tongdonhang, $idbill);
+                    }
+                    // xoa session cart
+                    $_SESSION['mycart'] = [];
+                }
             }
             $bill = loadone_bill($idbill);
             $billct = loadall_cart($idbill);

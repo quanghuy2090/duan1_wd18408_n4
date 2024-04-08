@@ -23,6 +23,13 @@
                         <label class="form-label">Tên khách hàng</label>
                         <td><input type="text" class="form-control ct-input border border-primary-subtle" size="25"
                                 name="user" value="<?= $user ?>"></td>
+                        <div class="text-danger">
+                            <?php
+                            if (isset($userErr) && $userErr != "") {
+                                echo $userErr;
+                            }
+                            ?>
+                        </div>
                     </div>
                 </div>
                 <div class="row justify-content-center">
@@ -30,6 +37,13 @@
                         <label class="form-label">Địa chỉ</label>
                         <td><input type="text" class="form-control ct-input border border-primary-subtle" name="address"
                                 value="<?= $address ?>"></td>
+                        <div class="text-danger">
+                            <?php
+                            if (isset($addressErr) && $addressErr != "") {
+                                echo $addressErr;
+                            }
+                            ?>
+                        </div>
                     </div>
                 </div>
                 <div class="row justify-content-center">
@@ -37,6 +51,13 @@
                         <label class="form-label">Email</label>
                         <td><input type="text" class="form-control ct-input border border-primary-subtle" name="email"
                                 value="<?= $email ?>"></td>
+                        <div class="text-danger">
+                            <?php
+                            if (isset($emailErr) && $emailErr != "") {
+                                echo $emailErr;
+                            }
+                            ?>
+                        </div>
                     </div>
                 </div>
                 <div class="row justify-content-center">
@@ -44,6 +65,13 @@
                         <label class="form-label">Số điện thoại</label>
                         <td><input type="text" class="form-control ct-input border border-primary-subtle" name="tel"
                                 value="<?= $tel ?>"></td>
+                        <div class="text-danger">
+                            <?php
+                            if (isset($telErr) && $telErr != "") {
+                                echo $telErr;
+                            }
+                            ?>
+                        </div>
                     </div>
                 </div>
             </div>
