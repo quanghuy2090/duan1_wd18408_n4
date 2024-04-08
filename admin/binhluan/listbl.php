@@ -29,7 +29,7 @@
                     <td>'.$id.'</td>
                     <td>'.$user.'</td>
                     <td>'.$ngaybinhluan.'</td>
-                    <td><a href= "'.$xoabl.'"><input type="button" value="Xóa"onclick="return confirm("Bạn có chắc muốn xóa tài khoản này không?" ></a></td>
+                    <td><a href= "'.$xoabl.'" onclick="return confirmDelete()"><input type="button" value="Xóa"onclick="return confirm("Bạn có chắc muốn xóa tài khoản này không?" ></a></td>
                 </tr>';
             }
             ?>
@@ -41,3 +41,8 @@
         </div>
     </form>
     </section>
+    <script>
+    function confirmDelete() {
+        return confirm("Bạn có chắc chắn muốn xóa mục này?");
+    }
+</script>

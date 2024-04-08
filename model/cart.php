@@ -11,7 +11,7 @@ function viewcart($del)
         $xoasp_th = '';
         $xoasp_td2 = '';
     }
-    echo '<tr>
+    echo '<tr class="text-center">
                 <th>Hình ảnh</th>
                 <th>Sản phẩm</th>
                 <th>Đơn giá</th>

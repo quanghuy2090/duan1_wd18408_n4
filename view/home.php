@@ -104,66 +104,94 @@
   <br> <br>
 
   <?php
-  $i = 0;
-  $columns = 4; // Số cột mong muốn
+    $i = 0;
+    $columns = 4; // Số cột trong lưới
 
-  // Lấy giá trị sắp xếp từ URL nếu có
-  $sort = isset($_GET['sort']) ? $_GET['sort'] : '';
+    $perPage = 8; // Số sản phẩm trên mỗi trang
+    $page = isset($_GET['page']) ? max(1, intval($_GET['page'])) : 1; // Trang hiện tại
 
-  // Sắp xếp mảng sản phẩm theo giá
-  if ($sort === 'asc') {
-    usort($spnew, function ($a, $b) {
-      return $a['price'] - $b['price'];
-    });
-  } elseif ($sort === 'desc') {
-    usort($spnew, function ($a, $b) {
-      return $b['price'] - $a['price'];
-    });
-  }
+    // Tính toán vị trí bắt đầu của sản phẩm trên trang hiện tại
+    $startIndex = ($page - 1) * $perPage;
 
-  foreach ($spnew as $sp) {
-    extract($sp);
-    $hinh = $img_path . $img;
-    if ($i % $columns == 0) {
-      echo '<div class="row">';
+    // Tính toán tổng số trang dựa trên tổng số sản phẩm và số lượng sản phẩm trên mỗi trang
+    $totalPages = ceil(count($spnew) / $perPage);
+
+    // Cắt danh sách sản phẩm thành trang hiện tại
+    $productsForPage = array_slice($spnew, $startIndex, $perPage);
+
+    // Sắp xếp sản phẩm nếu cần thiết
+    $sort = isset($_GET['sort']) ? $_GET['sort'] : '';
+    if ($sort === 'asc') {
+        usort($productsForPage, function ($a, $b) {
+            return $a['price'] - $b['price'];
+        });
+    } elseif ($sort === 'desc') {
+        usort($productsForPage, function ($a, $b) {
+            return $b['price'] - $a['price'];
+        });
     }
 
-    if (($i == 2) || ($i == 5) || ($i == 8)) {
-      $mr = "";
-    } else {
-      $mr = "mr";
-    }
+    // Hiển thị sản phẩm cho trang hiện tại
+    foreach ($productsForPage as $sp) {
+        extract($sp);
+        $hinh = $img_path . $img;
+        if ($i % $columns == 0) {
+            echo '<div class="row">';
+        }
 
-    $linksp = "index.php?act=sanphamct&idsp=" . $id;
+        // Xử lý class để căn giữa các cột
+        $mr = ($i % $columns == $columns - 1) ? '' : 'mr';
 
-    echo '                
-    <div class="col-md-' . (12 / $columns) . ' ' . $mr . '">
-      <div class="card" style="width: 18rem;">
-        <a class="item_name" href="' . $linksp . '"><img src="' . $hinh . '" class="card-img-top" width="50" height="300" alt=""></a>
-        <div class="card-body">
-          <a class="text-center text-dark-emphasis" href="' . $linksp . '">' . $name . '</a>
-          <p class="text-danger">Giá: ' . $price . ' đ</p>  
-          <form action="index.php?act=addtocart" method="post">
-            <input type="hidden" name="id" value="' . $id . '">
-            <input type="hidden" name="name" value="' . $name . '">
-            <input type="hidden" name="img" value="' . $img . '">
-            <input type="hidden" name="price" value="' . $price . '">
-            <div >
-              <input type="submit" name="addtocart" class="btn btn-primary" value="Thêm giỏ hàng">
-              <input type="submit" name="addtocart" class="btn btn-danger" value="Mua ngay"> 
+        $linksp = "index.php?act=sanphamct&idsp=" . $id;
+
+        echo '                
+        <div class="col-md-' . (12 / $columns) . ' ' . $mr . '">
+          <div class="card" style="width: 18rem;">
+            <a class="item_name" href="' . $linksp . '"><img src="' . $hinh . '" class="card-img-top" width="50" height="300" alt=""></a>
+            <div class="card-body">
+              <a class="text-center text-dark-emphasis" href="' . $linksp . '">' . $name . '</a>
+              <p class="text-danger">Giá: ' . $price . ' đ</p>  
+              <form action="index.php?act=addtocart" method="post">
+                <input type="hidden" name="id" value="' . $id . '">
+                <input type="hidden" name="name" value="' . $name . '">
+                <input type="hidden" name="img" value="' . $img . '">
+                <input type="hidden" name="price" value="' . $price . '">
+                <div >
+                  <input type="submit" name="addtocart" class="btn btn-primary" value="Thêm giỏ hàng">
+                  <input type="submit" name="addtocart" class="btn btn-danger" value="Mua ngay"> 
+                </div>
+              </form>    
             </div>
-          </form>    
-        </div>
-      </div>
-    </div> ';
+          </div>
+        </div> ';
 
-    $i++;
+        $i++;
 
-    if ($i % $columns == 0 || $i == count($spnew)) {
-      echo '</div> <br>';
+        if ($i % $columns == 0 || $i == count($spnew)) {
+            echo '</div> <br>';
+        }
     }
-  }
-  ?>
+
+    // Hiển thị phân trang
+    echo '<div class="pagination justify-content-center">';
+    echo '<ul class="pagination">';
+    
+    if ($page > 1) {
+        echo '<li class="page-item"><a class="page-link" href="index.php?page=' . ($page - 1) . '">Previous</a></li>';
+    }
+    
+    for ($i = 1; $i <= $totalPages; $i++) {
+        echo '<li class="page-item' . ($i == $page ? ' active' : '') . '"><a class="page-link" href="index.php?page=' . $i . '">' . $i . '</a></li>';
+    }
+    
+    if ($page < $totalPages) {
+        echo '<li class="page-item"><a class="page-link" href="index.php?page=' . ($page + 1) . '">Next</a></li>';
+    }
+    
+    echo '</ul>';
+    echo '</div>';
+?>
+
 </div>
 
 <script>

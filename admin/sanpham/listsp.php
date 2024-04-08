@@ -73,7 +73,7 @@
                             <td>' . $luotxem . '</td>
                             <td>' . $mota . '</td>
                             <td><a href="' . $suasp . '"><input type="button" value="Sửa"></a>
-                            <a href="' . $xoasp . '"><input type="button" value="Xóa"></a></td>
+                            <a href="' . $xoasp . '" onclick="return confirmDelete()"><input type="button" value="Xóa"></a></td>
                         </tr>';
                 };
             ?>
@@ -101,6 +101,12 @@
 
     </form>
 </section>
+
+<script>
+    function confirmDelete() {
+        return confirm("Bạn có chắc chắn muốn xóa mục này?");
+    }
+</script>
 
 <style>
 
