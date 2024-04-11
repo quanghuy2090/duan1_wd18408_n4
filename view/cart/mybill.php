@@ -8,29 +8,32 @@
                         <table class="table table-bordered mx-auto">
                             <thead>
                                 <tr>
-                                    <th>MÃ ĐƠN HÀNG</th>
-                                    <th>NGÀY ĐẶT HÀNG</th>
-                                    <th>SỐ LƯỢNG HÀNG</th>
-                                    <th>TỔNG GIÁ TRỊ</th>
-                                    <th>TRẠNG THÁI ĐƠN HÀNG</th>
+                                <th>Mã đơn hàng</th>
+                                <th>Ngày mua</th>
+                                <th>Số mặt hàng</th>
+                                <th>Tổng giá trị</th>
+                                <th>Trạng thái</th>
+                                <th>Thao tác</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                if (is_array($listbill)) {
-                                    foreach ($listbill as $bill) {
-                                        extract($bill);
-                                        $ttdh = get_ttdh($bill['bill_status']);
-                                        $countsp = loadall_cart_count($bill['id']);
-                                        echo '<tr>
-                                                <td>DVT-' . $bill['id'] . '</td>
-                                                <td>' . $bill['ngaydathang'] . '</td>
-                                                <td>' . $countsp . '</td>
-                                                <td>' . $bill['total'] . ' đ</td>
-                                                <td>' . $ttdh . '</td>
+                                    if(is_array($listbill)){
+                                        foreach ($listbill as $bill) {
+                                            extract($bill);
+                                            $ttdh=get_ttdh($bill['bill_status']);
+                                            $countsp=loadall_cart_count($bill['id']);
+                                            $huydh="index.php?act=huydh&id=".$id;
+                                        echo'  <tr> 
+                                            <td>Majestic-'.$bill['id'].'</td>
+                                            <td>'.$bill['ngaydathang'].'</td>
+                                            <td>'.$countsp.'</td>
+                                            <td>'.$bill['total'].'</td>
+                                            <td>'.$ttdh.'</td>
+                                            <td><a href="'.$huydh.'">Hủy đơn hàng</a></td>
                                             </tr>';
+                                        }
                                     }
-                                }
                                 ?>
                             </tbody>
                         </table>

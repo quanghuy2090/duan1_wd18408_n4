@@ -20,11 +20,11 @@
                     $xoadm="index.php?act=xoadm&id=".$id;
                     echo ' <tr>
                 <td><input type="checkbox" name="" id=""></td>
-                <td>H2T'.$id.'</td>
+                <td>DM'.$id.'</td>
                 <td>'.$name.'</td>
                 <td><a href="'.$suadm.'">
-                <input type="button" class="col-md-4" value="Sửa"></a>
-                <a href="'. $xoadm.'" onclick="return confirmDelete()"><input type="button" class="col-md-4" value="Xóa"></a></td>
+                <input type="button" class="col-md-4 btn btn-success" value="Sửa"></a>
+                <a href="'. $xoadm.'" onclick="return confirmDelete()"><input type="button" class="col-md-4 btn btn-danger" value="Xóa"></a></td>
             </tr>';
                 }
             ?>

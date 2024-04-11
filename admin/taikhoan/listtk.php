@@ -27,7 +27,7 @@
                     ?>
                     <tr>
                         <td><input type="checkbox" name="" id=""></td>
-                        <td><?= $id ?></td>
+                        <td>TK<?= $id ?></td>
                         <td><?= $user ?></td>
                         <td><?= $pass ?></td>
                         <td><?= $email ?></td>
@@ -35,7 +35,7 @@
                         <td><?= $tel ?></td>
                         <td><?= $role ?></td>
                         <td>
-                            <a href="<?= $xoatk ?>" onclick="return confirmDelete()"><input type="button" value="Xóa"></a>
+                            <a href="<?= $xoatk ?>" onclick="return confirmDelete()"><input type="button" class="btn btn-danger" value="Xóa"></a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

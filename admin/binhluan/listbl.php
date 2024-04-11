@@ -29,7 +29,7 @@
                     <td>'.$id.'</td>
                     <td>'.$user.'</td>
                     <td>'.$ngaybinhluan.'</td>
-                    <td><a href= "'.$xoabl.'" onclick="return confirmDelete()"><input type="button" value="Xóa"onclick="return confirm("Bạn có chắc muốn xóa tài khoản này không?" ></a></td>
+                    <td><a href= "'.$xoabl.'" onclick="return confirmDelete()"><input type="button" class="btn btn-danger" value="Xóa"></a></td>
                 </tr>';
             }
             ?>

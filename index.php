@@ -251,6 +251,27 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             $listbill = loadall_bill_home($_SESSION['user']['id']);
             include "view/cart/mybill.php";
             break;
+        case 'huydh':
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $bill = loadone_bill($_GET['id']);
+            }
+            include "view/huydh.php";
+            break;
+        case 'xlhuydh':
+            if (isset($_POST['capnhat']) && $_POST['capnhat']) {
+                $id = $_POST['id'];
+                $new_status = $_POST['new_status'];
+                // Cập nhật trạng thái đơn hàng trong cơ sở dữ liệu
+                update_bill_status($id, $new_status);
+                $thongbao = "Cập nhật trạng thái đơn hàng thành công";
+            }
+            $listbill = loadall_bill();
+            header('Location: index.php?act=ktdonhang');
+            break;    
+        case 'ktdonhang':
+            $listbill = loadall_bill_home($_SESSION['user']['id']);
+            include "view/cart/mybill.php";
+            break;
         case 'thoat':
             session_unset();
             header('Location: index.php');

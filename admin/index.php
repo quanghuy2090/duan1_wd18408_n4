@@ -147,6 +147,7 @@
             $listtaikhoan = loadall_taikhoan();
             include "taikhoan/listtk.php";
             break;
+
         case 'xoatk':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                 delete_taikhoan($_GET['id']);
@@ -155,6 +156,7 @@
             $listrole= loadall_role();
             include "taikhoan/listtk.php";
             break;
+
         case 'suatk':
             if(isset($_GET['id']) && ($_GET['id'] > 0)) {
                 $taikhoan = loadone_taikhoan($_GET['id']);
@@ -162,6 +164,7 @@
             $listrole=loadall_role();
             include "taikhoan/updatetk.php";
             break;
+
         case 'updatetk':
             if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
                 $id=$_POST['id'];
@@ -178,6 +181,7 @@
             $listbinhluan = loadall_binhluan(0);
             include "binhluan/listbl.php";
             break;
+
         case 'xoabl':
             if(isset($_GET['id'])&&($_GET['id']>0)){
                 delete_binhluan($_GET['id']);
@@ -196,6 +200,7 @@
             $listbill = loadall_bill($kyw,0);
             include "bill/listbill.php";
             break;
+
         case 'suabill':
             if(isset($_GET['id'])&&($_GET['id']>0)){
                 $bill=loadone_bill($_GET['id']);                
@@ -203,6 +208,7 @@
             $listbill=loadall_bill($kyw="",0);
             include "bill/updatebill.php";
             break;
+
         case 'updatebill':
             if(isset($_POST['capnhat']) && ($_POST['capnhat'])){
                 $bill_status=$_POST['bill_status'];
@@ -215,10 +221,10 @@
             break;
 
         case 'xoabill':
-            if(isset($_GET['id'])&&($_GET['id']>0)){
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                 delete_bill($_GET['id']);
             }
-            $listbill = delete_bill();
+            $listbill = loadall_bill();
             include "bill/listbill.php";
             break;
 

@@ -73,7 +73,7 @@
                         <div class="box_content container">
                             <table class="table table-hover">
                                 <?php
-                                bill_chi_tiet($billct);
+                                    bill_chi_tiet($billct);
                                 ?>
                             </table>
                         </div>
@@ -85,6 +85,6 @@
                 </div>
     </div>
     <?php
-    include "view/boxright.php";
+        include "view/boxright.php";
     ?>
 </main>

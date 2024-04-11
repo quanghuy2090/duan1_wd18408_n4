@@ -6,12 +6,12 @@
 
     <form action="index.php?act=listsp" method="post">
         <label for="">Tìm kiếm sản phẩm</label> 
-        <input type="text" name="kyw" placeholder="Nhập sản phẩm bạn muốn tìm kiếm !"><hr>
+        <input type="text" name="kyw" class="col-md-6" placeholder="Nhập sản phẩm bạn muốn tìm kiếm !"><hr>
         <input type="submit" class="col-md-2" name="listok" id="" value="Tìm kiếm">
         <br><br>
         
         <label for="">Tìm kiếm sản phẩm theo danh mục</label>
-        <select name="iddm">
+        <select name="iddm" class="col-md-2">
             <option value="0" selected>Tất cả</option>
             <?php foreach($listdanhmuc as $danhmuc): ?>
                 <option value="<?= $danhmuc['id'] ?>"><?= $danhmuc['name'] ?></option>
@@ -66,14 +66,18 @@
                     echo '
                         <tr>
                             <td><input type="checkbox" name="" id=""></td>
-                            <td>H2T ' . $id . '</td>
+                            <td>SP' . $id . '</td>
                             <td><a href="' . $linksp . '">' . $name . '</a></td>
                             <td><a href="' . $linksp . '">' . $hinh . '</a></td>
                             <td><strong>' . $price . '$</strong></td>
                             <td>' . $luotxem . '</td>
                             <td>' . $mota . '</td>
-                            <td><a href="' . $suasp . '"><input type="button" value="Sửa"></a>
-                            <a href="' . $xoasp . '" onclick="return confirmDelete()"><input type="button" value="Xóa"></a></td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a href="<?= $suasp ?>" class="btn btn-success mr-2">Sửa</a>
+                                    <a href="<?= $xoasp ?>" class="btn btn-danger" onclick="return confirmDelete()">Xóa</a>
+                                </div>
+                            </td>
                         </tr>';
                 };
             ?>
