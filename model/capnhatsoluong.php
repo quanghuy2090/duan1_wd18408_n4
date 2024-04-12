@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "cart.php";
-
+include "../global.php";
 $idsp = $_REQUEST['idsp'];
 $slmoi = $_REQUEST['slmoi'];
 // echo "Received idsp: " . $idsp . "<br>";

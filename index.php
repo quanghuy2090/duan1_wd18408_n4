@@ -50,8 +50,22 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             } else {
                 include "view/home.php";
             }
-            break;
 
+
+            break;
+        // case 'capnhatctsp':
+        //     ob_end_clean();
+        //     $idsp = $_REQUEST['idsp'];
+        //     $slmoi = $_REQUEST['slmoi'];
+        //     $_POST['soluong'] = $slmoi;
+        //     if (isset($idsp) && $idsp > 0) {
+        //         $sanpham = loadone_sanpham($idsp);
+        //         $sanphamcl = load_sanpham_cungloai($idsp, $sanpham['iddm']);
+        //         // $binhluan = loadall_binhluan($_GET['idsp']);
+        //         include "view/chitietsanpham.php";
+        //     }
+
+        //     break;
         case 'dangky':
             if (isset($_POST['dangky']) && $_POST['dangky']) {
                 $email = $_POST['email'];
@@ -166,8 +180,8 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $name = $_POST['name'];
                 $img = $_POST['img'];
                 $price = $_POST['price'];
-                if (isset($_POST['soluong']) && isset($_POST['soluong']) > 0) {
-                    $soluong = $_POST['soluong'];
+                if (isset($_SESSION['mycart'][$id]['soluong']) && isset($_SESSION['mycart'][$id]['soluong']) > 0) {
+                    $soluong = $_SESSION['mycart'][$id]['soluong'];
                 } else {
                     $soluong = 1;
                 }
