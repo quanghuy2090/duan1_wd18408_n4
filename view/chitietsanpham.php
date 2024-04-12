@@ -40,17 +40,19 @@
         echo ' <span class="size-button" onclick="setSize("S")">S</span>
                     <span class="size-button" onclick="setSize("M")">M</span>
                     <span class="size-button" onclick="setSize("L")">L</span>';
-        echo '<div class="m-2"><button class="btn" onclick=giam(this)>-</button><a>' . $soluong .
-            '</a><button class="btn" onclick=tang(this)>+</button></div>';
+        echo '<div class="m-2">
+                <button class="btn" onclick="giamSoluong()">-</button>
+                <a id="quantity">'.$soluong.'</a>
+                <button class="btn" onclick="tangSoluong()">+</button>
+                </div>';
         echo "<p class='fw-semibold'>$mota</p>";
         echo '<form action="index.php?act=addtocart" method="post">
-                            <input type="hidden" name="id" value="' . $id . '">
-                            <input type="hidden" name="name" value="' . $name . '">
-                            <input type="hidden" name="img" value="' . $img . '">
-                            <input type="hidden" name="price" value="' . $price . '">
-
-                            <input type="submit" name="addtocart" class="btn btn-primary" value="Thêm giỏ hàng">
-                        </form>';
+                <input type="hidden" name="id" value="' . $id . '">
+                <input type="hidden" name="name" value="' . $name . '">
+                <input type="hidden" name="img" value="' . $img . '">
+                <input type="hidden" name="price" value="' . $price . '">
+                <input type="submit" name="addtocart" class="btn btn-primary" value="Thêm giỏ hàng">
+            </form>';
         echo "</div>";
         echo "<div class='col'>";
         echo "</div>";
@@ -87,7 +89,7 @@
         </div> -->
     </div>
     <?php
-    include "view/boxright.php";
+        include "view/boxright.php";
     ?>
 
 </main>
@@ -105,6 +107,25 @@
 
         var currentSizeElement = document.getElementById('size-' + selectedSize);
         currentSizeElement.classList.add('selected');
+    }
+    function giamSoluong() {
+        var quantityElement = document.getElementById('quantity');
+        var currentQuantity = parseInt(quantityElement.innerText);
+
+        if (currentQuantity > 1) {
+            currentQuantity--;
+            quantityElement.innerText = currentQuantity;
+        } else {
+            alert("Số lượng sản phẩm đã là 1, không thể giảm thêm!");
+        }
+    }
+
+    function tangSoluong() {
+        var quantityElement = document.getElementById('quantity');
+        var currentQuantity = parseInt(quantityElement.innerText);
+
+        currentQuantity++;
+        quantityElement.innerText = currentQuantity;
     }
 
 </script>

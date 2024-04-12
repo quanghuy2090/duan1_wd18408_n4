@@ -66,7 +66,6 @@
             <li><a class="dropdown-item text-dark-emphasis" href="index.php?act=sanpham&iddm=2">Áo khoác</a></li>
             <li><a class="dropdown-item text-dark-emphasis" href="index.php?act=sanpham&iddm=3">Quần jeans</a></li>
             <li><a class="dropdown-item text-dark-emphasis" href="index.php?act=sanpham&iddm=5">Quần short</a></li>
-            <li><a class="dropdown-item text-dark-emphasis" href="index.php?act=sanpham&iddm=">Combo</a></li>
           </ul>
         </li>
         <li class="nav-item">

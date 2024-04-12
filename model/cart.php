@@ -130,8 +130,7 @@ function loadall_cart_count($idbill)
     $bill = pdo_query($sql);
     return sizeof($bill);
 }
-function delete_bill($id)
-{
+function delete_bill($id){
     $sql = "DELETE FROM bill WHERE id=" . $id;
     pdo_execute($sql);
 }
@@ -179,7 +178,18 @@ function get_pttt($n)
     }
     return $tt;
 }
+function update_bill_status($id, $new_status) {
+    $sql = "UPDATE bill SET bill_status = $new_status WHERE id = $id";
+    pdo_execute($sql);
+}
 
+function loadall_thongke(){
+    $sql = "SELECT * FROM danhmuc.id as madm, danhmuc.name as tendm, count(sanpham.id) as countsp, min(sanpham.price) as minpricce, max(sanpham.price) as maxprice, avg(sanpham.price) as avgprice";
+    $sql.=" form sanpham left join danhmuc on danhmuc.id = sanpham.iddm";
+    $sql.= " group by danhmuc.id ORDER BY danhmuc.id desc";
+    $listtk = pdo_query($sql);
+    return $listtk;
+}
 ?>
 <script>
     function plus(x) {
@@ -233,4 +243,5 @@ function get_pttt($n)
         // tt_obj.innerText=tt;
 
     }
+    
 </script>

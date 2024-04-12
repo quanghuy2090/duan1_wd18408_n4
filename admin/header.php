@@ -226,6 +226,19 @@ input[type="reset"]:hover {
                             </ul>
                         </li>       
                     
+                        <li class="sidebar-item"> 
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <span class="hide-menu">Thống kê</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item">
+                                    <a href="index.php?act=thongke" class="sidebar-link">
+                                        <span class="hide-menu">Thống kê danh mục</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li> 
+
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
