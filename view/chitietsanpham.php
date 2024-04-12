@@ -12,6 +12,23 @@
     .selected {
         background-color: yellow;
     }
+    .quantity-container {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-btn {
+  background-color: #f1f1f1;
+  border: none;
+  padding: 8px 12px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.quantity-value {
+  margin: 0 10px;
+  font-size: 16px;
+}
 </style>
 <main class="container ">
     <input type="hidden" name="" value="" >
@@ -38,13 +55,10 @@
         echo "<h2 class='fw-bold'> $name</h2>";
         echo " <h4 class='text-danger'>$price đ</h4>";
         echo ' <strong> Size :</strong> <span id="selected-size"></span>';
-        echo ' <span class="size-button" onclick="setSize("S")">S</span>
-                    <span class="size-button" onclick="setSize("M")">M</span>
-                    <span class="size-button" onclick="setSize("L")">L</span>';
-        echo '<div class="m-2">
-                <button class="btn" onclick="giamSoluong()">-</button>
-                <a id="quantity">'.$soluong.'</a>
-                <button class="btn" onclick="tangSoluong()">+</button>
+        echo '<div class="m-2 quantity-container">
+                <button class="btn quantity-btn" onclick="giamSoluong()">-</button>
+                <a id="quantity" class="quantity-value">'.$soluong.'</a>
+                <button class="btn quantity-btn" onclick="tangSoluong()">+</button>
                 </div>';
         echo "<p class='fw-semibold'>$mota</p>";
         echo '<form action="index.php?act=addtocart" method="post">

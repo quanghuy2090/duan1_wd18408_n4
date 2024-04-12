@@ -1,3 +1,10 @@
+<style>
+    div.grid {
+        display: flex;
+        align-items: center;
+    }
+
+</style>
 <?php
 function viewcart($del)
 {
@@ -34,14 +41,16 @@ function viewcart($del)
                     <td>' . $cart["name"] . '</td>
                     <td>' . $cart["price"] . ' đ</td>
                     <td>
-                    <div class="input-group-prepend">
-                    <input type="button" value="-" class="form-control text-center quantity-amount" onclick=minus(this)>
+                    <div class="grid row offset-2">
+                    <div class="input-group-prepend col-1 ">
+                    <input type="button" value="-" class="form-control text-center quantity-btn" onclick=minus(this)>
                     </div>
-                    <input type="text" name="" id="" size="5 class="form-control text-center quantity-amount" value="' . $cart['soluong'] . '" onkeyup="kiemtrasoluong(this)">
-                    <div class="input-group-prepend">
-                    <input type="button" value="+" class="form-control text-center quantity-amount" onclick=plus(this)> 
+                    <input type="text" name="" id="" size="1" class="form-control text-center quantity-amount offset-1" style="width: 50px;" value="' . $cart['soluong'] . '" onkeyup="kiemtrasoluong(this)">
+                    <div class="input-group-prepend col-1">
+                    <input type="button" value="+" class="form-control text-center quantity-btn" onclick=plus(this)> 
                     </div>
                     <input type="hidden" name="" value="' . $cart["id"] . '">
+                    </div>
                     </td>
                     <td>' . $thanhtien . ' đ</td>
                     ' . $xoasp_td . '
