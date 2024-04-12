@@ -33,7 +33,16 @@ function viewcart($del)
                     <td><img src="' . $hinh . '" alt="" height="80px"></td>
                     <td>' . $cart["name"] . '</td>
                     <td>' . $cart["price"] . ' đ</td>
-                    <td><a onclick=giam(this)>-</a><a>' . $cart["soluong"] . '</a><a onclick=plus(this)>+</a><input type="hidden" value="' . $cart["id"] . '"></td>
+                    <td>
+                    <div class="input-group-prepend">
+                    <input type="button" value="-" class="form-control text-center quantity-amount" onclick=minus(this)>
+                    </div>
+                    <input type="text" name="" id="" size="5 class="form-control text-center quantity-amount" value="' . $cart['soluong'] . '" onkeyup="kiemtrasoluong(this)">
+                    <div class="input-group-prepend">
+                    <input type="button" value="+" class="form-control text-center quantity-amount" onclick=plus(this)> 
+                    </div>
+                    <input type="hidden" name="" value="' . $cart["id"] . '">
+                    </td>
                     <td>' . $thanhtien . ' đ</td>
                     ' . $xoasp_td . '
                 </tr>';
@@ -130,7 +139,8 @@ function loadall_cart_count($idbill)
     $bill = pdo_query($sql);
     return sizeof($bill);
 }
-function delete_bill($id){
+function delete_bill($id)
+{
     $sql = "DELETE FROM bill WHERE id=" . $id;
     pdo_execute($sql);
 }
@@ -178,62 +188,75 @@ function get_pttt($n)
     }
     return $tt;
 }
-function update_bill_status($id, $new_status) {
+function update_bill_status($id, $new_status)
+{
     $sql = "UPDATE bill SET bill_status = $new_status WHERE id = $id";
     pdo_execute($sql);
 }
 ?>
+<script src="\jquery-3.4.1.min.js"></script>
 <script>
     function plus(x) {
-        let sl = x.previousSibling;
-        let slcu = sl.innerHTML;
-        let slmoi = parseInt(slcu) + 1;
-        // sl.innerHTML = slmoi;
-        // alert(slmoi);
-        let id = x.nextSibling.value;
-        $.post("capnhatsoluong.php",
-            {
-                'id': id,
-                'slmoi': slmoi
-            },
-            function (data, textStatus, jqXHR) {
-                $("#cart").html(data);
-            }
-        );
+        var cha = x.parentNode;
+        var slcu = cha.previousSibling.previousSibling;
+        var slmoi = parseInt(slcu.value) + 1;
+        var idsp = cha.nextSibling.nextSibling.value;
 
-        // let parent = x.parentElement;
-        // let dongia_obj = parent.previousSibling.previousSibling;
-        // let dongia =dongia_obj.innerText;
-        // let tt_obj = parent.nextSibling.nextSibling;
-        // let tt = parseInt(dongia)*parseInt(slmoi);
-        // tt_obj.innerText=tt;
-    }
-    function giam(x) {
-        let sl = x.nextSibling;
-        let slcu = sl.innerHTML;
-        if (parseInt(slcu) > 1) {
-            var slmoi = parseInt(slcu) - 1;
-            let id = x.nextSibling.nextSibling.nextSibling.value;
-            $.post("capnhatsoluong.php",
+        if (slmoi < 11) {
+            slcu.value = slmoi;
+            $.post("/model/capnhatsoluong.php",
                 {
-                    'id': id,
-                    'slmoi': slmoi
+                    "idsp": idsp,
+                    "slmoi": slmoi,
                 },
                 function (data, textStatus, jqXHR) {
-                    $("#cart").html(data);
-                }
-            );
+                    console.log(data);
+                    document.getElementById("cart").innerHTML = data;
+                },
+            ).fail(function (jqXHR, textStatus, errorThrown) {
+                // Error callback function
+                console.log("AJAX request failed:", errorThrown);
+                // Perform error handling actions here, such as displaying an error message to the user
+            });
         } else {
-            alert('Không thể giảm thêm');
-            slmoi = 1;
+            alert("Không thể lớn hơn 10")
         }
-        // let parent = x.parentElement;
-        // let dongia_obj = parent.previousSibling.previousSibling;
-        // let dongia =dongia_obj.innerText;
-        // let tt_obj = parent.nextSibling.nextSibling;
-        // let tt = parseInt(dongia)*parseInt(slmoi);
-        // tt_obj.innerText=tt;
 
     }
-    
+    function minus(x) {
+        var cha = x.parentNode;
+        var slcu = cha.nextSibling.nextSibling;
+        var slmoi = parseInt(slcu.value) - 1;
+        var idsp = cha.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.value;
+        if (slmoi > 0) {
+            slcu.value = slmoi;
+            $.post("/model/capnhatsoluong.php",
+                {
+                    "idsp": idsp,
+                    "slmoi": slmoi,
+                },
+                function (data, textStatus, jqXHR) {
+                    console.log(data);
+                    document.getElementById("cart").innerHTML = data;
+                },
+            ).fail(function (jqXHR, textStatus, errorThrown) {
+                // Error callback function
+                console.log("AJAX request failed:", errorThrown);
+                // Perform error handling actions here, such as displaying an error message to the user
+            });
+        } else {
+            alert("Không thể nhỏ hơn 1")
+        }
+    }
+    function kiemtrasoluong(x) {
+        var num = parseInt(x.value);
+        if (num < 1) {
+            x.value = 1;
+            alert("Không thể nhỏ hơn 1");
+        }
+        if (num > 10) {
+            x.value = 1;
+            alert("Không thể lớn hơn 10");
+        }
+    }
 </script>

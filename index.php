@@ -201,6 +201,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             include "view/cart/viewcart.php";
             break;
         case 'bill':
+
             include "view/cart/bill.php";
             break;
         case 'billconfirm':
@@ -218,30 +219,15 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $pttt = $_POST['pttt'];
                 $ngaydathang = date('h:i:sa d/m/Y');
                 $tongdonhang = tongdonhang();
-                if (empty($user)) {
-                    $userErr = "* Chưa điền Username";
+                $idbill = insert_bill($iduser, $user, $address, $email, $tel, $pttt, $ngaydathang, $tongdonhang);
+                echo $idbill;
+                //insert vao session my cart & $idbill
+                foreach ($_SESSION['mycart'] as $cart) {
+                    insert_cart($iduser, $cart['id'], $cart['img'], $cart['name'], $cart['price'], $cart['soluong'], $tongdonhang, $idbill);
                 }
-                if (empty($address)) {
-                    $addressErr = "* Chưa điền địa chỉ";
-                }
-                if (empty($email)) {
-                    $emailErr = "* Chưa điền Email";
-                }
-                if (empty($tel)) {
-                    $telErr = "* Chưa điền số điện thoại";
-                }elseif (mb_strlen($tel)<9 && mb_strlen($tel)>12 ) {
-                    $telErr = "* Số điện thoại quá dài hoặc quá ngắn";
-                }
-                if (empty($userErr) && empty($emailErr) && empty($addressErr) && empty($telErr)) {
-                    $idbill = insert_bill($iduser, $user, $address, $email, $tel, $pttt, $ngaydathang, $tongdonhang);
-                    echo $idbill;
-                    //insert vao session my cart & $idbill
-                    foreach ($_SESSION['mycart'] as $cart) {
-                        insert_cart($iduser, $cart['id'], $cart['img'], $cart['name'], $cart['price'], $cart['soluong'], $tongdonhang, $idbill);
-                    }
-                    // xoa session cart
-                    $_SESSION['mycart'] = [];
-                }
+                // xoa session cart
+                $_SESSION['mycart'] = [];
+
             }
             $bill = loadone_bill($idbill);
             $billct = loadall_cart($idbill);
@@ -267,7 +253,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             }
             $listbill = loadall_bill();
             header('Location: index.php?act=ktdonhang');
-            break;    
+            break;
         case 'ktdonhang':
             $listbill = loadall_bill_home($_SESSION['user']['id']);
             include "view/cart/mybill.php";

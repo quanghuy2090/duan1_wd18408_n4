@@ -96,7 +96,7 @@
                     <table class="table">
                         <thead>
                             <?php
-                            viewcart(0);
+                            viewcart(1);
                             ?>
                         </thead>
                     </table>

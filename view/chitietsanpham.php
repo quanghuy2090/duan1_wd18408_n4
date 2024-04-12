@@ -14,6 +14,7 @@
     }
 </style>
 <main class="container ">
+    <input type="hidden" name="" value="" >
     <div class="text-center">
         <?php extract($sanpham); ?>
         <h3 class="badge text-bg-success text-wrap" style="width: 12rem;">
