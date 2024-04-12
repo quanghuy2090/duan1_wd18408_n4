@@ -25,7 +25,11 @@
                                             $countsp=loadall_cart_count($bill['id']);
                                             $huydh="index.php?act=huydh&id=".$id;
                                         echo'  <tr> 
+<<<<<<< HEAD
                                             <td>DH'.$bill['id'].'</td>
+=======
+                                            <td>Majestic-'.$bill['id'].'</td>
+>>>>>>> 469568bcb3a8355e099f67f3efd28405249042c7
                                             <td>'.$bill['ngaydathang'].'</td>
                                             <td>'.$countsp.'</td>
                                             <td>'.$bill['total'].'</td>

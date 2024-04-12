@@ -7,10 +7,12 @@
     <form action="index.php?act=listsp" method="post">
         <label for="">Tìm kiếm sản phẩm</label> 
         <input type="text" name="kyw" class="col-md-6" placeholder="Nhập sản phẩm bạn muốn tìm kiếm !"><hr>
+        <input type="text" name="kyw" class="col-md-6" placeholder="Nhập sản phẩm bạn muốn tìm kiếm !"><hr>
         <input type="submit" class="col-md-2" name="listok" id="" value="Tìm kiếm">
         <br><br>
         
         <label for="">Tìm kiếm sản phẩm theo danh mục</label>
+        <select name="iddm" class="col-md-2">
         <select name="iddm" class="col-md-2">
             <option value="0" selected>Tất cả</option>
             <?php foreach($listdanhmuc as $danhmuc): ?>
@@ -66,6 +68,7 @@
                     echo '
                         <tr>
                             <td><input type="checkbox" name="" id=""></td>
+                            <td>SP' . $id . '</td>
                             <td>SP' . $id . '</td>
                             <td><a href="' . $linksp . '">' . $name . '</a></td>
                             <td><a href="' . $linksp . '">' . $hinh . '</a></td>

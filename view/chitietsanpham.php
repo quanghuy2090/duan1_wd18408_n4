@@ -12,12 +12,32 @@
     .selected {
         background-color: yellow;
     }
+
+    .quantity-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .quantity-btn {
+        background-color: #f1f1f1;
+        border: none;
+        padding: 8px 12px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .quantity-value {
+        margin: 0 10px;
+        font-size: 16px;
+    }
 </style>
 <main class="container ">
+    <input type="hidden" name="" value="">
     <div class="text-center">
         <?php extract($sanpham); ?>
         <h3 class="badge text-bg-success text-wrap" style="width: 12rem;">
             Chi tiết sản phẩm
+
         </h3>
     </div><br>
 
@@ -29,6 +49,7 @@
             $soluong = 1;
         }
         $hinh = $img_path . $img;
+        echo "<div id='ctsp'>";
         echo "<div class='row'>";
         echo "<div class='col-5'>";
         echo "<img src='$hinh' width='400' height='300px'>";
@@ -53,8 +74,16 @@
                 <input type="hidden" name="price" value="' . $price . '">
                 <input type="submit" name="addtocart" class="btn btn-primary" value="Thêm giỏ hàng">
             </form>';
+            'form
+                <input type="hidden" name="id" value="' . $id . '">
+                <input type="hidden" name="name" value="' . $name . '">
+                <input type="hidden" name="img" value="' . $img . '">
+                <input type="hidden" name="price" value="' . $price . '">
+                <input type="submit" name="addtocart" class="btn btn-primary" value="Thêm giỏ hàng">
+            </form>';
         echo "</div>";
         echo "<div class='col'>";
+        echo "</div>";
         echo "</div>";
         echo "</div>";
         echo "<br>";
@@ -93,6 +122,7 @@
     ?>
 
 </main>
+<script src="/jquery-3.4.1.min.js" ></script>
 <script>
     var selectedSize = '';
 

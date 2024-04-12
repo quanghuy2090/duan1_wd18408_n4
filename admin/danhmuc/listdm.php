@@ -21,6 +21,7 @@
                     echo ' <tr>
                 <td><input type="checkbox" name="" id=""></td>
                 <td>DM'.$id.'</td>
+                <td>DM'.$id.'</td>
                 <td>'.$name.'</td>
                 <td>
                     <a href="'.$suadm.'"><input type="button" class="col-md-4 btn btn-success" value="Sửa"></a>

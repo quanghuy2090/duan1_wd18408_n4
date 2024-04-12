@@ -50,8 +50,22 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             } else {
                 include "view/home.php";
             }
-            break;
 
+
+            break;
+        // case 'capnhatctsp':
+        //     ob_end_clean();
+        //     $idsp = $_REQUEST['idsp'];
+        //     $slmoi = $_REQUEST['slmoi'];
+        //     $_POST['soluong'] = $slmoi;
+        //     if (isset($idsp) && $idsp > 0) {
+        //         $sanpham = loadone_sanpham($idsp);
+        //         $sanphamcl = load_sanpham_cungloai($idsp, $sanpham['iddm']);
+        //         // $binhluan = loadall_binhluan($_GET['idsp']);
+        //         include "view/chitietsanpham.php";
+        //     }
+
+        //     break;
         case 'dangky':
             if (isset($_POST['dangky']) && $_POST['dangky']) {
                 $email = $_POST['email'];
@@ -166,8 +180,8 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $name = $_POST['name'];
                 $img = $_POST['img'];
                 $price = $_POST['price'];
-                if (isset($_POST['soluong']) && isset($_POST['soluong']) > 0) {
-                    $soluong = $_POST['soluong'];
+                if (isset($_SESSION['mycart'][$id]['soluong']) && isset($_SESSION['mycart'][$id]['soluong']) > 0) {
+                    $soluong = $_SESSION['mycart'][$id]['soluong'];
                 } else {
                     $soluong = 1;
                 }
@@ -201,6 +215,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             include "view/cart/viewcart.php";
             break;
         case 'bill':
+
             include "view/cart/bill.php";
             break;
         case 'billconfirm':
@@ -218,30 +233,15 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $pttt = $_POST['pttt'];
                 $ngaydathang = date('h:i:sa d/m/Y');
                 $tongdonhang = tongdonhang();
-                if (empty($user)) {
-                    $userErr = "* Chưa điền Username";
+                $idbill = insert_bill($iduser, $user, $address, $email, $tel, $pttt, $ngaydathang, $tongdonhang);
+                echo $idbill;
+                //insert vao session my cart & $idbill
+                foreach ($_SESSION['mycart'] as $cart) {
+                    insert_cart($iduser, $cart['id'], $cart['img'], $cart['name'], $cart['price'], $cart['soluong'], $tongdonhang, $idbill);
                 }
-                if (empty($address)) {
-                    $addressErr = "* Chưa điền địa chỉ";
-                }
-                if (empty($email)) {
-                    $emailErr = "* Chưa điền Email";
-                }
-                if (empty($tel)) {
-                    $telErr = "* Chưa điền số điện thoại";
-                }elseif (mb_strlen($tel)<9 && mb_strlen($tel)>12 ) {
-                    $telErr = "* Số điện thoại quá dài hoặc quá ngắn";
-                }
-                if (empty($userErr) && empty($emailErr) && empty($addressErr) && empty($telErr)) {
-                    $idbill = insert_bill($iduser, $user, $address, $email, $tel, $pttt, $ngaydathang, $tongdonhang);
-                    echo $idbill;
-                    //insert vao session my cart & $idbill
-                    foreach ($_SESSION['mycart'] as $cart) {
-                        insert_cart($iduser, $cart['id'], $cart['img'], $cart['name'], $cart['price'], $cart['soluong'], $tongdonhang, $idbill);
-                    }
-                    // xoa session cart
-                    $_SESSION['mycart'] = [];
-                }
+                // xoa session cart
+                $_SESSION['mycart'] = [];
+
             }
             $bill = loadone_bill($idbill);
             $billct = loadall_cart($idbill);
