@@ -58,23 +58,15 @@
         echo "<h2 class='fw-bold'> $name</h2>";
         echo " <h4 class='text-danger'>$price đ</h4>";
         echo ' <strong> Size :</strong> <span id="selected-size"></span>';
-        echo ' <span class="size-button" onclick="setSize("S")">S</span>
-                    <span class="size-button" onclick="setSize("M")">M</span>
-                    <span class="size-button" onclick="setSize("L")">L</span>';
-        echo '<div class="m-2">
-                <button class="btn" onclick="giamSoluong()">-</button>
-                <a id="quantity">'.$soluong.'</a>
-                <button class="btn" onclick="tangSoluong()">+</button>
+        echo '<div class="m-2 quantity-container">
+                <button class="btn quantity-btn" onclick="minus(this)">-</button>
+                <input type="text" name="" id="" size="1" class="form-control text-center quantity-amount" style="width: 50px;" value="' . $soluong . '" onkeyup="kiemtrasoluong(this)">
+                <button class="btn quantity-btn" onclick="plus(this)">+</button>
+                <input type="hidden" name="" value="' . $id . '" >
+                
                 </div>';
         echo "<p class='fw-semibold'>$mota</p>";
         echo '<form action="index.php?act=addtocart" method="post">
-                <input type="hidden" name="id" value="' . $id . '">
-                <input type="hidden" name="name" value="' . $name . '">
-                <input type="hidden" name="img" value="' . $img . '">
-                <input type="hidden" name="price" value="' . $price . '">
-                <input type="submit" name="addtocart" class="btn btn-primary" value="Thêm giỏ hàng">
-            </form>';
-            'form
                 <input type="hidden" name="id" value="' . $id . '">
                 <input type="hidden" name="name" value="' . $name . '">
                 <input type="hidden" name="img" value="' . $img . '">
@@ -118,7 +110,7 @@
         </div> -->
     </div>
     <?php
-        include "view/boxright.php";
+    include "view/boxright.php";
     ?>
 
 </main>
@@ -138,24 +130,56 @@
         var currentSizeElement = document.getElementById('size-' + selectedSize);
         currentSizeElement.classList.add('selected');
     }
-    function giamSoluong() {
-        var quantityElement = document.getElementById('quantity');
-        var currentQuantity = parseInt(quantityElement.innerText);
-
-        if (currentQuantity > 1) {
-            currentQuantity--;
-            quantityElement.innerText = currentQuantity;
+    function plus(x) {
+        var cha = x;
+        var slcu = cha.previousSibling.previousSibling;
+        var slmoi = parseInt(slcu.value) + 1;
+        var idsp = cha.nextSibling.nextSibling.value;
+        if (slmoi < 11) {
+            slcu.value = slmoi;
+            $.post("/model/capnhatctsp.php",
+                {
+                    "idsp": idsp,
+                    "slmoi": slmoi,
+                },
+                function (data, textStatus, jqXHR) {
+                    console.log(data);
+                    document.getElementById("ctsp").innerHTML = data;
+                },
+            ).fail(function (jqXHR, textStatus, errorThrown) {
+                // Error callback function
+                console.log("AJAX request failed:", errorThrown);
+                // Perform error handling actions here, such as displaying an error message to the user
+            });
         } else {
-            alert("Số lượng sản phẩm đã là 1, không thể giảm thêm!");
+            alert("Không thể lớn hơn 10")
         }
+
     }
-
-    function tangSoluong() {
-        var quantityElement = document.getElementById('quantity');
-        var currentQuantity = parseInt(quantityElement.innerText);
-
-        currentQuantity++;
-        quantityElement.innerText = currentQuantity;
+    function minus(x) {
+        var cha = x;
+        var slcu = cha.nextSibling.nextSibling;
+        var slmoi = parseInt(slcu.value) - 1;
+        var idsp = cha.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.value;
+        if (slmoi > 0) {
+            slcu.value = slmoi;
+            $.post("//model/capnhatctsp.php",
+                {
+                    "idsp": idsp,
+                    "slmoi": slmoi,
+                },
+                function (data, textStatus, jqXHR) {
+                    console.log(data);
+                    document.getElementById("ctsp").innerHTML = data;
+                },
+            ).fail(function (jqXHR, textStatus, errorThrown) {
+                // Error callback function
+                console.log("AJAX request failed:", errorThrown);
+                // Perform error handling actions here, such as displaying an error message to the user
+            });
+        } else {
+            alert("Không thể nhỏ hơn 1")
+        }
     }
 
 </script>

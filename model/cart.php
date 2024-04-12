@@ -42,13 +42,9 @@ function viewcart($del)
                     <td>' . $cart["price"] . ' đ</td>
                     <td>
                     <div class="grid row offset-2">
-                    <div class="input-group-prepend col-1 ">
-                    <input type="button" value="-" class="form-control text-center quantity-btn" onclick=minus(this)>
-                    </div>
-                    <input type="text" name="" id="" size="1" class="form-control text-center quantity-amount offset-1" style="width: 50px;" value="' . $cart['soluong'] . '" onkeyup="kiemtrasoluong(this)">
-                    <div class="input-group-prepend col-1">
-                    <input type="button" value="+" class="form-control text-center quantity-btn" onclick=plus(this)> 
-                    </div>
+                    <button class="btn quantity-btn" style="width: 30px;" onclick="minus(this)">-</button>
+                    <input type="text" name="" id="" size="1" class="form-control text-center quantity-amount" style="width: 50px;" value="' . $cart['soluong'] . '" onkeyup="kiemtrasoluong(this)">
+                    <button class="btn quantity-btn" style="width: 30px;" onclick="plus(this)">+</button>
                     <input type="hidden" name="" value="' . $cart["id"] . '">
                     </div>
                     </td>
@@ -148,7 +144,8 @@ function loadall_cart_count($idbill)
     $bill = pdo_query($sql);
     return sizeof($bill);
 }
-function delete_bill($id){
+function delete_bill($id)
+{
     $sql = "DELETE FROM bill WHERE id=" . $id;
     pdo_execute($sql);
 }
@@ -196,26 +193,28 @@ function get_pttt($n)
     }
     return $tt;
 }
-function update_bill_status($id, $new_status) {
+function update_bill_status($id, $new_status)
+{
     $sql = "UPDATE bill SET bill_status = $new_status WHERE id = $id";
     pdo_execute($sql);
 }
 
-function loadall_thongke(){
+function loadall_thongke()
+{
     $sql = "SELECT * FROM danhmuc.id as madm, danhmuc.name as tendm, count(sanpham.id) as countsp, min(sanpham.price) as minpricce, max(sanpham.price) as maxprice, avg(sanpham.price) as avgprice";
-    $sql.=" form sanpham left join danhmuc on danhmuc.id = sanpham.iddm";
-    $sql.= " group by danhmuc.id ORDER BY danhmuc.id desc";
+    $sql .= " form sanpham left join danhmuc on danhmuc.id = sanpham.iddm";
+    $sql .= " group by danhmuc.id ORDER BY danhmuc.id desc";
     $listtk = pdo_query($sql);
     return $listtk;
 }
 ?>
+<script src="/jquery-3.4.1.min.js" ></script>
 <script>
     function plus(x) {
-        var cha = x.parentNode;
+        var cha = x;
         var slcu = cha.previousSibling.previousSibling;
         var slmoi = parseInt(slcu.value) + 1;
         var idsp = cha.nextSibling.nextSibling.value;
-
         if (slmoi < 11) {
             slcu.value = slmoi;
             $.post("/model/capnhatsoluong.php",
@@ -238,7 +237,7 @@ function loadall_thongke(){
 
     }
     function minus(x) {
-        var cha = x.parentNode;
+        var cha = x;
         var slcu = cha.nextSibling.nextSibling;
         var slmoi = parseInt(slcu.value) - 1;
         var idsp = cha.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.value;
@@ -259,16 +258,8 @@ function loadall_thongke(){
                 // Perform error handling actions here, such as displaying an error message to the user
             });
         } else {
-            alert('Không thể giảm thêm');
-            slmoi = 1;
+            alert("Không thể nhỏ hơn 1")
         }
-        // let parent = x.parentElement;
-        // let dongia_obj = parent.previousSibling.previousSibling;
-        // let dongia =dongia_obj.innerText;
-        // let tt_obj = parent.nextSibling.nextSibling;
-        // let tt = parseInt(dongia)*parseInt(slmoi);
-        // tt_obj.innerText=tt;
-
     }
-    
+
 </script>
